@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :clinicians do
     resources :patients, only: [:index, :show]
   end
+
   namespace :clinicians do
     resources :sessions, only: [:new, :create] do
       delete :destroy, on: :collection
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   resources :patients do
     resources :clinicians, only: [:show]
   end
+
   namespace :patients do
     resources :sessions, only: [:new, :create] do
       delete :destroy, on: :collection

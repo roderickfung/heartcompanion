@@ -1,5 +1,5 @@
 class CliniciansController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create]
+  before_action :authenticate_clinician!, except: [:new, :create]
   before_action :set_clinician, only: [:index, :show, :edit, :update, :destroy]
 
   def new
@@ -8,6 +8,7 @@ class CliniciansController < ApplicationController
 
   def create
     @clinician = Clinician.new clinician_params
+    @clinician.role ||= 'clinician'
     if @clinician.save
       redirect_to root_path, notice: 'Succesfully Signed Up! Please await Admin approval.'
     else
@@ -22,10 +23,12 @@ class CliniciansController < ApplicationController
 
   def show
 
+    render layout: 'clinician-dash'
   end
 
   def edit
 
+    render layout: 'clinician-dash'
   end
 
   def update
