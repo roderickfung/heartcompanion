@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+# Pagination
+gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
@@ -25,14 +26,37 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Styling
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-glyphicons'
+gem 'font-awesome-rails'
+
+
+# Authorization
+gem 'cancancan'
+
+#FSM - unsure whether I need it
+# gem 'aasm'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  # gem 'byebug', platform: :mri
+  gem 'awesome_print'
+  gem 'hirb'
+  gem 'interactive_editor'
+
+  gem 'chosen-rails'
+  gem 'faker', github: 'stympy/faker'
+
+  gem 'rspec'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-doc'
 end
 
 group :development do
