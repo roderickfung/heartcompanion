@@ -1,0 +1,2 @@
+module Clinicians::SessionsHelper
+end
