@@ -19,7 +19,6 @@ class PatientsController < ApplicationController
       @clinician = Clinician.find params[:clinician_id]
       render layout: 'clinician-dash'
     else
-
       render layout: 'patient-dash'
     end
   end

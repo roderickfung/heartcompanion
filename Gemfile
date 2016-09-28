@@ -36,6 +36,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-glyphicons'
 gem 'font-awesome-rails'
 
+#beautify
+gem 'rubocop', require: false
 
 # Authorization
 gem 'cancancan'

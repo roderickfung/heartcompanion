@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Heartapp</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <nav class='navbar navbar-default navbar-fixed-top bg-faded'>
-      <div class='container'>
-        <ul class='nav navbar-nav navbar-left'>
-          <li><%=link_to 'Heart Companion', root_path, class: 'navbar-brand'%></li>
-          <!-- <li><%#link_to 'About Us', abouts_path%></li> -->
-        </ul>
-        <ul class='nav navbar-nav navbar-right'>
-          <%if clinician_signed_in?%>
-            <li><%=link_to "#{current_user.full_name}", '#'%></li>
-          <%else%>
-            <li><%=link_to "Welcome!", '#'%></li>
-          <%end%>
-          <li class='dropdown'>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class='glyphicon glyphicon-user'></span><span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <% if clinician_signed_in?%>
-                <li><%= link_to "#{current_user.full_name}", '#'%></li>
-                <li><%= link_to "Log Out", clinicians_sessions_path, method: :delete%></li>
-              <%else%>
-                <li><%=link_to 'Register Clinician', new_clinician_path%></li>
-                <li><%=link_to 'Log In as Clinician / Admin', new_clinicians_session_path%></li>
-              <%end%>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class='container'>
-      <div class = 'page-space-lg'></div>
-      <div class='alert-success'>
-        <center><%=flash[:notice]%></center>
-      </div>
-      <div class='alert-danger'>
-        <center><%=flash[:alert]%></center>
-      </div>
-      <div class = 'page-space'></div>
-      <%= render 'clinicians/clinician-nav', clinician: @clinician %>
-    </div>
-  </body>
+    <head>
+        <title>Heartapp</title>
+        <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
+        <nav class='navbar navbar-default navbar-fixed-top bg-faded'>
+            <div class='container'>
+                <ul class='nav navbar-nav navbar-left'>
+                    <li><%=link_to 'Heart Companion', root_path, class: 'navbar-brand'%></li>
+                    <!-- <li><%#link_to 'About Us', abouts_path%></li> -->
+                </ul>
+                <ul class='nav navbar-nav navbar-right'>
+                    <%if clinician_signed_in?%>
+                    <li><%=link_to "#{current_user.full_name}", '#'%></li>
+                    <%else%>
+                    <li><%=link_to "Welcome!", '#'%></li>
+                    <%end%>
+                    <li class='dropdown'>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class='glyphicon glyphicon-user'></span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <% if clinician_signed_in?%>
+                            <li><%= link_to "#{current_user.full_name}", '#'%></li>
+                            <li><%= link_to "Log Out", clinicians_sessions_path, method: :delete%></li>
+                            <%else%>
+                            <li><%=link_to 'Register Clinician', new_clinician_path%></li>
+                            <li><%=link_to 'Log In as Clinician / Admin', new_clinicians_session_path%></li>
+                            <%end%>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class='container'>
+            <div class='page-space-lg'></div>
+            <div class='alert-success'>
+                <center><%=flash[:notice]%></center>
+            </div>
+            <div class='alert-danger'>
+                <center><%=flash[:alert]%></center>
+            </div>
+            <div class='page-space'></div>
+            <%= render 'clinicians/clinician-nav', clinician: @clinician %>
+        </div>
+    </body>
 </html>

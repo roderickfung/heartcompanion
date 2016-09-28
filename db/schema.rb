@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160923041332) do
   enable_extension "plpgsql"
 
   create_table "clinicians", force: :cascade do |t|
-    t.string   "role",              default: "clinician"
+    t.string   "role",            default: "clinician"
     t.string   "username"
     t.string   "first_name"
     t.string   "last_name"
@@ -24,16 +24,16 @@ ActiveRecord::Schema.define(version: 20160923041332) do
     t.string   "phone"
     t.text     "address"
     t.string   "password_digest"
-    t.string   "remember_digest"
-    t.string   "activation_digest"
-    t.boolean  "approved",          default: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.string   "auth_token"
+    t.boolean  "approved",        default: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.index ["auth_token"], name: "index_clinicians_on_auth_token", using: :btree
     t.index ["username", "email"], name: "index_clinicians_on_username_and_email", using: :btree
   end
 
   create_table "patients", force: :cascade do |t|
-    t.string   "role",                default: "patient"
+    t.string   "role",            default: "patient"
     t.string   "care_id"
     t.string   "first_name"
     t.string   "last_name"
@@ -43,18 +43,18 @@ ActiveRecord::Schema.define(version: 20160923041332) do
     t.string   "phone"
     t.text     "address"
     t.string   "password_digest"
-    t.string   "remember_digest"
-    t.string   "confirmation_digest"
-    t.boolean  "approved"
+    t.string   "auth_token"
+    t.boolean  "approved",        default: false
     t.integer  "bphigh"
     t.integer  "bplow"
     t.integer  "hrhigh"
     t.integer  "hrlow"
     t.integer  "lbhigh"
     t.integer  "lblow"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "clinicians_id"
+    t.index ["auth_token"], name: "index_patients_on_auth_token", using: :btree
     t.index ["bphigh", "bplow"], name: "index_patients_on_bphigh_and_bplow", using: :btree
     t.index ["care_id", "email"], name: "index_patients_on_care_id_and_email", using: :btree
     t.index ["clinicians_id"], name: "index_patients_on_clinicians_id", using: :btree

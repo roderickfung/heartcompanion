@@ -9,12 +9,12 @@ class CreateClinicians < ActiveRecord::Migration[5.0]
       t.string :phone
       t.text :address
       t.string :password_digest
-      t.string :remember_digest
-      t.string :activation_digest
+      t.string :auth_token
       t.boolean :approved, default: false
 
       t.timestamps
     end
     add_index :clinicians, [:username, :email]
+    add_index :clinicians, :auth_token
   end
 end

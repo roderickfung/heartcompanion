@@ -1,6 +1,6 @@
 class CliniciansController < ApplicationController
   before_action :authenticate_clinician!, except: [:new, :create]
-  before_action :set_clinician, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_clinician, only: [:index, :show, :edit, :update]
 
   def new
     @clinician = Clinician.new
@@ -9,6 +9,7 @@ class CliniciansController < ApplicationController
   def create
     @clinician = Clinician.new clinician_params
     @clinician.role ||= 'clinician'
+    @clinician.auth_token =
     if @clinician.save
       redirect_to root_path, notice: 'Succesfully Signed Up! Please await Admin approval.'
     else
@@ -36,7 +37,12 @@ class CliniciansController < ApplicationController
   end
 
   def destroy
-
+    if @clinician == current_user || current_user.admin?
+      @clinician.destroy
+      redirect_to root_path
+    else
+      flash[:notice] = 'You do not have permission to do that'
+    end
   end
 
   protected
@@ -46,7 +52,7 @@ class CliniciansController < ApplicationController
   end
 
   def set_clinician
-    @clinician = Clinician.find params[:id]
+    @clinician = Clinician.find_by_auth_token cookie.auth_token
   end
 
 end

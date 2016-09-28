@@ -14,25 +14,29 @@ class ApplicationController < ActionController::Base
   helper_method :patient_signed_in?
 
 
-  def current_user
+  def current_clinician
     #technique below is called memoization which fetched the user in this case the first time you call the method, and every subsequent time, it uses the one stored in the '@current_user' variable.
     if clinician_signed_in?
-      @current_user ||= Clinician.find session[:clinician_id]
-    elsif patient_signed_in?
-      @current_user ||= Patient.find session[:patient_id]
+      @current_clinician ||= Clinician.find session[:clinician_id]
     end
   end
-  helper_method :current_user
+  helper_method :current_clinician
+
+  def current_patient
+    if patient_signed_in?
+      @current_patient ||= Patient.find session[:patient_id]
+    end
+  end
 
   def authenticate_clinician!
     if clinician_signed_in? == false
-      redirect_to new_clinicians_session_path
+      redirect_to clinician_log_in_path
     end
   end
 
   def authenticate_patient!
     if patient_signed_in? == false
-      redirect_to new_patients_session_path
+      redirect_to patient_log_in_path
     end
   end
 end
