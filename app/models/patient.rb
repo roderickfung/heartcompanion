@@ -13,9 +13,16 @@ class Patient < ApplicationRecord
   validates :address, presence: true
 
   before_validation :set_defaults
+  before_create { generate_token(:auth_token) }
 
   def full_name
     "#{first_name} #{last_name}".squeeze(' ').strip.titleize
+  end
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while Patient.exists?(column => self[column])
   end
 
   protected

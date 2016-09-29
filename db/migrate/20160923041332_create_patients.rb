@@ -21,8 +21,8 @@ class CreatePatients < ActiveRecord::Migration[5.0]
       t.integer :lbhigh
       t.integer :lblow
 
+      t.references :clinician, foreign_key: true
       t.timestamps
-      t.references :clinicians, foreign_key: true
     end
   add_index :patients, [:care_id, :email]
   add_index :patients, [:bphigh, :bplow]

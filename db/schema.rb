@@ -51,16 +51,16 @@ ActiveRecord::Schema.define(version: 20160923041332) do
     t.integer  "hrlow"
     t.integer  "lbhigh"
     t.integer  "lblow"
+    t.integer  "clinician_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "clinicians_id"
     t.index ["auth_token"], name: "index_patients_on_auth_token", using: :btree
     t.index ["bphigh", "bplow"], name: "index_patients_on_bphigh_and_bplow", using: :btree
     t.index ["care_id", "email"], name: "index_patients_on_care_id_and_email", using: :btree
-    t.index ["clinicians_id"], name: "index_patients_on_clinicians_id", using: :btree
+    t.index ["clinician_id"], name: "index_patients_on_clinician_id", using: :btree
     t.index ["hrhigh", "hrlow"], name: "index_patients_on_hrhigh_and_hrlow", using: :btree
     t.index ["lbhigh", "lblow"], name: "index_patients_on_lbhigh_and_lblow", using: :btree
   end
 
-  add_foreign_key "patients", "clinicians", column: "clinicians_id"
+  add_foreign_key "patients", "clinicians"
 end

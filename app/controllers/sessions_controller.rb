@@ -10,31 +10,34 @@ class SessionsController < ApplicationController
 
   def create_clinician
     clinician = Clinician.find_by_username(params[:username])
-    if user && user.authenticate(params[:password])
+    if clinician && clinician.approved == false
+      flash.now.alert = 'Account not approved.'
+      render 'new_clinician'
+    elsif clinician && clinician.authenticate(params[:password]) && clinician.approved
       if params[:remember_me]
-        cookies.permanent[:auth_token] = clinician.auth_token
+        cookies.permanent[:clinician_auth] = clinician.auth_token
       else
-        cookies[:auth_token] = clinician.auth_token
+        cookies[:clinician_auth] = clinician.auth_token
       end
       redirect_to root_path, notice: 'Logged in!'
     else
       flash.now.alert = 'Invalid username or password'
-      render 'clinician_log_in'
+      render 'new_clinician'
     end
   end
 
   def create_patient
     patient = Patient.find_by_care_id(params[:care_id])
-    if user && user.authenticate(params[:password])
+    if patient && patient.authenticate(params[:password])
       if params[:remember_me]
-        cookies.permanent[:auth_token] = patient.auth_token
+        cookies.permanent[:patient_auth] = patient.auth_token
       else
-        cookies[:auth_token] = patient.auth_token
+        cookies[:patient_auth] = patient.auth_token
       end
       redirect_to root_path, notice: 'Logged in!'
     else
       flash.now.alert = 'Invalid care id or password'
-      render '/patient_log_in'
+      render 'new_patient'
     end
   end
 

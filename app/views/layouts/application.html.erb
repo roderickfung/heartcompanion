@@ -32,8 +32,8 @@
                 <li><%= link_to "Log Out", logout_path, method: :delete%></li>
               <%else%>
                 <li><%=link_to 'Register Clinician', new_clinician_path%></li>
-                <li><%=link_to 'Log In as Clinician / Admin', new_clinicians_session_path%></li>
-                <li><%=link_to 'Log In as Patient', new_patients_session_path%></li>
+                <li><%=link_to 'Log In as Clinician / Admin', clinician_log_in_path%></li>
+                <li><%=link_to 'Log In as Patient', patient_log_in_path%></li>
               <%end%>
             </ul>
           </li>
@@ -48,7 +48,7 @@
       <div class='alert-danger'>
         <center><%=flash[:alert]%></center>
       </div>
-      <div class = 'page-space'></div>
+      <div class = 'page-space-lg'></div>
       <%= yield %>
     </div>
   </body>

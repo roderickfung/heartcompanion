@@ -16,7 +16,7 @@ class PatientsController < ApplicationController
 
   def index
     if clinician_signed_in?
-      @clinician = Clinician.find params[:clinician_id]
+      @clinician = Clinician.find_by_auth_token cookies[:clinician_auth]
       render layout: 'clinician-dash'
     else
       render layout: 'patient-dash'

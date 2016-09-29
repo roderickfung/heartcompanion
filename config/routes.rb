@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/about' => 'home#about', as: :about
 
-  resources :clinician, only: [:new, :create]
+  resources :clinicians, only: [:new, :create, :show, :edit, :update]
 
   # clinician sessions
   get '/clinician_log_in' => 'sessions#new_clinician', as: :clinician_log_in
@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   # delete '/clinician_log_out' => 'sessions_destroy_clinician', as: :clinician_log_out
 
   namespace :clinician do
-    get '/patients' => 'clinician#patient_index', as: :my_patients
+    get '/patients' => 'my_patients#index', as: :my_patients
+    get '/patients/' =>  'my_patients#show', as: :my_patient
   end
 
   #patient sessions
@@ -20,10 +21,10 @@ Rails.application.routes.draw do
   post '/patient_logs_in' => 'sessions#create_patient', as: :patient_logs_in
   # delete '/patient_log_out' => 'sessions_destroy_patient', as: :patient_log_out
 
-  get 'logout' => 'sessions#destroy', :as => 'logout'
+  delete 'logout' => 'sessions#destroy', :as => 'logout'
 
   namespace :patient do
-    get 'clinician' => 'patient#clinician', as: :my_clinician
+    get 'clinician' => 'clinician#show', as: :my_clinician
   end
 
 

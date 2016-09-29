@@ -9,7 +9,6 @@ class CliniciansController < ApplicationController
   def create
     @clinician = Clinician.new clinician_params
     @clinician.role ||= 'clinician'
-    @clinician.auth_token =
     if @clinician.save
       redirect_to root_path, notice: 'Succesfully Signed Up! Please await Admin approval.'
     else
@@ -52,7 +51,7 @@ class CliniciansController < ApplicationController
   end
 
   def set_clinician
-    @clinician = Clinician.find_by_auth_token cookie.auth_token
+    @clinician = Clinician.find_by_auth_token cookies[:clinician_auth]
   end
 
 end
