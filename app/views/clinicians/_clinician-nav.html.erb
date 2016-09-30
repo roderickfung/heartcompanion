@@ -7,7 +7,10 @@
         <%=link_to 'Dashboard', clinician_path(@clinician)%>
       </li>
       <li role='presentation'>
-        <%=link_to 'Patients', clinician_my_patients_path%>
+        <%=link_to 'Patients', patients_path%>
+      </li>
+      <li role='presentation'>
+        <%=link_to 'New Patient', new_patient_path%>
       </li>
       <li role='presentation'>
         <%=link_to 'Settings', edit_clinician_path(@clinician)%>

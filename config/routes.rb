@@ -4,16 +4,23 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/about' => 'home#about', as: :about
 
-  resources :clinicians, only: [:new, :create, :show, :edit, :update] do
-    member do
-      resources :patients, only: [:index, :new, :create, :edit, :update]
-      # get :patients
-      get 'patients/:id' => 'clinician#patient', as: :patient
-      get
-    end
+  resources :clinicians
+  resources :patients, only: [:show, :index, :edit, :update]
+
+  namespace :clinicians do
+    resources :patients, only: [:new, :create, :index, :show]
   end
 
-  resources :patients, only: []
+  # resources :clinicians, only: [:new, :create, :show, :edit, :update] do
+  #   member do
+  #     resources :patients, only: [:index, :new, :create, :edit, :update]
+  #     # get :patients
+  #     get 'patients/:id' => 'clinician#patient', as: :patient
+  #     get
+  #   end
+  # end
+
+
 
   # resources :patients, module: 'clinicians', only: [:show, :index]
 

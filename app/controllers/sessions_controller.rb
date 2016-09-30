@@ -42,7 +42,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    cookies.delete(:auth_token)
-    redirect_to root_path, notice: 'Logged out!'
+    if cookies[:clinician_auth].present?
+      cookies.delete(:clinician_auth)
+    else
+      cookies.delete(:patient_auth)
+    end
+    redirect_to root_path, notice: 'Logged out'
   end
 end
