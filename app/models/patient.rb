@@ -3,7 +3,7 @@ class Patient < ApplicationRecord
   belongs_to :clinician
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  validates :care_id, presence: true
+  validates :care_id, presence: true, numericality: {greater_than: 9845000000, less_than: 9999999999}
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: {case_sensitive: false}, format: VALID_EMAIL_REGEX

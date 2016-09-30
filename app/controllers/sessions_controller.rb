@@ -21,14 +21,16 @@ class SessionsController < ApplicationController
       end
       redirect_to root_path, notice: 'Logged in!'
     else
-      flash.now.alert = 'Invalid username or password'
+      flash.now.alert = clinician.errors.full_messages.to_sentence
       render 'new_clinician'
     end
   end
 
   def create_patient
     patient = Patient.find_by_care_id(params[:care_id])
-    if patient && patient.authenticate(params[:password])
+    if patient && patient.approved == false
+      flash.now.alert = 'Your account has not been activated by the clinician. Please contact your clinician for more details'
+    elsif patient && patient.authenticate(params[:password]) && patient.approved
       if params[:remember_me]
         cookies.permanent[:patient_auth] = patient.auth_token
       else
@@ -36,7 +38,7 @@ class SessionsController < ApplicationController
       end
       redirect_to root_path, notice: 'Logged in!'
     else
-      flash.now.alert = 'Invalid care id or password'
+      flash.now.alert = patient.errors.full_messages.to_sentence
       render 'new_patient'
     end
   end

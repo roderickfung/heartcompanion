@@ -12,7 +12,7 @@ class CliniciansController < ApplicationController
     if @clinician.save
       redirect_to root_path, notice: "Succesfully Signed Up! Please await for an administrator to verify your account."
     else
-      flash[:alert] = errors.full_messages
+      flash[:alert] = @clinician.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -38,7 +38,7 @@ class CliniciansController < ApplicationController
       cookies.delete(:clinician_auth)
       redirect_to root_path, notice: 'Account Edited. An administrator will verify your changes.'
     else
-      flash[:alert] = errors.full_messages
+      flash[:alert] = @clinician.errors.full_messages.to_sentence
       render :edit
     end
   end
