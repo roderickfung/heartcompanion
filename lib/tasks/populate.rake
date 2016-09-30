@@ -45,7 +45,7 @@ namespace :db do
 			ln = Faker::Name.last_name
 			pn = Faker::PhoneNumber.phone_number
 			@patient = Patient.create!(
-				care_id: Faker::Number.number(10),
+				care_id: Faker::Number.between(9845000000, 9999999999),
 				first_name: fn,
 				last_name: ln,
 				email: Faker::Internet.email,
