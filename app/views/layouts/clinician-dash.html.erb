@@ -45,16 +45,25 @@
         </ul>
       </div>
     </nav>
-    <div class='container'>
-      <div class='page-space-lg'></div>
-      <div class='alert-success'>
-        <center><%=flash[:notice]%></center>
+
+    <div class='container-fluid'>
+      <div class='row-fluid'>
+        <div class='span3'>
+          <%= render 'clinicians/clinician-nav', clinician: @clinician %>
+        </div>
+        <div class='span9'>
+          <div class='container'>
+            <div class='alert-success'>
+              <center><%=flash[:notice]%></center>
+            </div>
+            <div class='alert-danger'>
+              <center><%=flash[:alert]%></center>
+            </div>
+            <%= yield %>
+          </div>
+        </div>
       </div>
-      <div class='alert-danger'>
-        <center><%=flash[:alert]%></center>
-      </div>
-      <div class='page-space'></div>
-      <%= render 'clinicians/clinician-nav', clinician: @clinician %>
     </div>
+
   </body>
 </html>
