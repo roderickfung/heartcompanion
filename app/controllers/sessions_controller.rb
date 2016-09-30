@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   def create_clinician
     clinician = Clinician.find_by_username(params[:username])
     if clinician && clinician.approved == false
-      flash.now.alert = 'Account not approved.'
+      flash.now.alert = 'Your account has not been approved by an administrator. Please contact us for assistance.'
       render 'new_clinician'
     elsif clinician && clinician.authenticate(params[:password]) && clinician.approved
       if params[:remember_me]

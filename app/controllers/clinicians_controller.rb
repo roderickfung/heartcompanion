@@ -10,9 +10,9 @@ class CliniciansController < ApplicationController
     @clinician = Clinician.new clinician_params
     @clinician.role ||= 'clinician'
     if @clinician.save
-      redirect_to root_path, notice: 'Succesfully Signed Up! Please await Admin approval.'
+      redirect_to root_path, notice: "Succesfully Signed Up! Please await for an administrator to verify your account."
     else
-      flash[:alert] = 'Something went wrong!'
+      flash[:alert] = errors.full_messages
       render :new
     end
   end
@@ -22,6 +22,7 @@ class CliniciansController < ApplicationController
   end
 
   def show
+    @clinician
 
     render layout: 'clinician-dash'
   end
@@ -32,7 +33,14 @@ class CliniciansController < ApplicationController
   end
 
   def update
-
+    @clinician.approved = false
+    if @clinician.update clinician_params
+      cookies.delete(:clinician_auth)
+      redirect_to root_path, notice: 'Account Edited. An administrator will verify your changes.'
+    else
+      flash[:alert] = errors.full_messages
+      render :edit
+    end
   end
 
   def destroy

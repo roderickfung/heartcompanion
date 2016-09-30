@@ -26,8 +26,16 @@
               </a>
               <ul class="dropdown-menu">
               <% if clinician_signed_in?%>
-                <li><%= link_to "#{current_clinician.full_name}", '#'%></li>
-                <li><%= link_to "Log Out", logout_path, method: :delete%></li>
+                <li>
+                  <%= link_to edit_clinician_path(@clinician) do %>
+                    <i class='glyphicon glyphicon-cog'></i>&nbsp;&nbsp;<span>Edit Profile</span>
+                  <%end%>
+                </li>
+                <li>
+                  <%= link_to logout_path, method: :delete do%>
+                    <i class='glyphicon glyphicon-off'></i>&nbsp;&nbsp;<span>Log Out</span>
+                  <%end%>
+                </li>
               <%else%>
                 <li><%=link_to 'Register Clinician', new_clinician_path%></li>
                 <li><%=link_to 'Log In as Clinician / Admin', clinician_log_in_path%></li>

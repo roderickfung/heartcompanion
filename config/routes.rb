@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   get '/about' => 'home#about', as: :about
 
   resources :clinicians
-  resources :patients, only: [:show, :index, :edit, :update]
+  resources :patients, only: [:show, :edit, :update]
 
-  namespace :clinicians do
+  namespace :clinicians, path: 'clinician' do
     resources :patients, only: [:new, :create, :index, :show]
   end
 
@@ -19,8 +19,6 @@ Rails.application.routes.draw do
   #     get
   #   end
   # end
-
-
 
   # resources :patients, module: 'clinicians', only: [:show, :index]
 

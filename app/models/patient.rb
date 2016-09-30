@@ -21,7 +21,7 @@ class Patient < ApplicationRecord
 
   def generate_token(column)
     begin
-      self[column] = SecureRandom.urlsafe_base64
+      self[column] = SecureRandom.hex(64)
     end while Patient.exists?(column => self[column])
   end
 
