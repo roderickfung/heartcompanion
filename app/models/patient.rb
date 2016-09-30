@@ -12,15 +12,22 @@ class Patient < ApplicationRecord
   validates :phone, presence: true
   validates :address, presence: true
 
-  before_validation :set_defaults
+  before_validation :set_approved_defaults
+  before_create { generate_token(:auth_token) }
 
   def full_name
     "#{first_name} #{last_name}".squeeze(' ').strip.titleize
   end
 
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.hex(64)
+    end while Patient.exists?(column => self[column])
+  end
+
   protected
 
-  def set_defaults
+  def set_approved_defaults
     self.approved ||= false
   end
 end

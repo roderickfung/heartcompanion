@@ -1,6 +1,6 @@
 class CliniciansController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create]
-  before_action :set_clinician, only: [:index, :show, :edit, :update, :destroy]
+  before_action :authenticate_clinician!, except: [:new, :create]
+  before_action :set_clinician, only: [:index, :show, :edit, :update]
 
   def new
     @clinician = Clinician.new
@@ -8,10 +8,11 @@ class CliniciansController < ApplicationController
 
   def create
     @clinician = Clinician.new clinician_params
+    @clinician.role ||= 'clinician'
     if @clinician.save
-      redirect_to root_path, notice: 'Succesfully Signed Up! Please await Admin approval.'
+      redirect_to root_path, notice: "Succesfully Signed Up! Please await for an administrator to verify your account."
     else
-      flash[:alert] = 'Something went wrong!'
+      flash[:alert] = errors.full_messages
       render :new
     end
   end
@@ -21,19 +22,34 @@ class CliniciansController < ApplicationController
   end
 
   def show
+    @clinician
 
+    render layout: 'clinician-dash'
   end
 
   def edit
 
+    render layout: 'clinician-dash'
   end
 
   def update
-
+    @clinician.approved = false
+    if @clinician.update clinician_params
+      cookies.delete(:clinician_auth)
+      redirect_to root_path, notice: 'Account Edited. An administrator will verify your changes.'
+    else
+      flash[:alert] = errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
-
+    if @clinician == current_user || current_user.admin?
+      @clinician.destroy
+      redirect_to root_path
+    else
+      flash[:notice] = 'You do not have permission to do that'
+    end
   end
 
   protected
@@ -43,7 +59,7 @@ class CliniciansController < ApplicationController
   end
 
   def set_clinician
-    @clinician = Clinician.find params[:id]
+    @clinician = Clinician.find_by_auth_token cookies[:clinician_auth]
   end
 
 end
