@@ -5,7 +5,7 @@ class CreatePatients < ActiveRecord::Migration[5.0]
       t.string :care_id
       t.string :first_name
       t.string :last_name
-      t.boolean :sex
+      t.string :sex
       t.integer :age
       t.string :email
       t.string :phone

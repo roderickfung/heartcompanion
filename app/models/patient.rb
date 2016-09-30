@@ -12,7 +12,7 @@ class Patient < ApplicationRecord
   validates :phone, presence: true
   validates :address, presence: true
 
-  before_validation :set_defaults
+  before_validation :set_approved_defaults
   before_create { generate_token(:auth_token) }
 
   def full_name
@@ -27,7 +27,7 @@ class Patient < ApplicationRecord
 
   protected
 
-  def set_defaults
+  def set_approved_defaults
     self.approved ||= false
   end
 end

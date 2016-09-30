@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160923041332) do
     t.string   "care_id"
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "sex"
+    t.string   "sex"
     t.integer  "age"
     t.string   "email"
     t.string   "phone"
