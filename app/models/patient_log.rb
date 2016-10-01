@@ -1,0 +1,2 @@
+class PatientLog < ApplicationRecord
+end
