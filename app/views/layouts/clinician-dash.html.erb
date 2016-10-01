@@ -7,6 +7,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+
     <nav class='navbar navbar-default navbar-fixed-top bg-faded'>
       <div class='container'>
         <ul class='nav navbar-nav navbar-left'>
@@ -45,25 +46,32 @@
         </ul>
       </div>
     </nav>
+    <!-- Side Nav -->
+    <div id="wrapper">
+      <div class="overlay"></div>
+      <%= render 'clinicians/sidebar', clinician: @clinician %>
 
-    <div class='container-fluid'>
-      <div class='row-fluid'>
-        <div class='span3'>
-          <%= render 'clinicians/clinician-nav', clinician: @clinician %>
-        </div>
-        <div class='span9'>
-          <div class='container'>
-            <div class='alert-success'>
-              <center><%=flash[:notice]%></center>
-            </div>
-            <div class='alert-danger'>
-              <center><%=flash[:alert]%></center>
-            </div>
-            <%= yield %>
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
+        <div class="container">
+          <div class='alert-success'>
+            <center><%=flash[:notice]%></center>
+          </div>
+          <div class='alert-danger'>
+            <center><%=flash[:alert]%></center>
+          </div>
+          <div class="row">
+            <%=yield%>
           </div>
         </div>
       </div>
-    </div>
+      <!-- /#page-content-wrapper -->
 
+    </div>
   </body>
 </html>
