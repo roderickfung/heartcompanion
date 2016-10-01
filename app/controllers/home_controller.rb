@@ -13,7 +13,15 @@ class HomeController < ApplicationController
   end
 
   def about
+    if clinician_signed_in?
+      @clinician = Clinician.find_by_auth_token cookies[:clinician_auth]
+      render layout: 'clinician-dash'
+    elsif patient_signed_in?
+      @patient = Patient.find_by_auth_token cookies[:patient_auth]
+      render layout: 'patient-dash'
+    else
 
+    end
   end
 
 end
