@@ -200,18 +200,24 @@ html { height: 100%;}
 .hamburger.is-closed:hover:before {
   opacity: 1;
   display: block;
-  -webkit-transform: translate3d(-100px,0,0);
+  -webkit-transform: translate3d(0,0,0);
   -webkit-transition: all .35s ease-in-out;
 }
 
 .hamburger.is-closed .hamb-top,
 .hamburger.is-closed .hamb-middle,
-.hamburger.is-closed .hamb-bottom,
+.hamburger.is-closed .hamb-bottom {
+  position: absolute;
+  left: 0;
+  height: 3px;
+  width: 100%;
+}
+
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-middle,
 .hamburger.is-open .hamb-bottom {
   position: absolute;
-  left: 0;
+  left: -220px;
   height: 3px;
   width: 100%;
 }

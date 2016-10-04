@@ -25,7 +25,7 @@ class Clinicians::PatientsController < ApplicationController
   end
 
   def show
-
+    
     render layout: 'clinician-dash'
   end
 
