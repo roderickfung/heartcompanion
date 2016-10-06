@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :patients, path: 'patient' do
     resources :clinicians, only: [:show]
+    resources :patient_logs, path: 'logs', only: [:new, :create]
   end
 
   #patient sessions

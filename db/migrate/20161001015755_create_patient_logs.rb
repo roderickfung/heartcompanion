@@ -7,10 +7,10 @@ class CreatePatientLogs < ActiveRecord::Migration[5.0]
       t.integer  :bp_low
       t.integer  :weight_num
       t.string   :weight_type
-      t.string   :exerting_breath
-      t.string   :night_breath
-      t.string   :leg_swollen
-      t.string   :lightheadedness
+      t.integer   :exerting_breath
+      t.integer   :night_breath
+      t.integer   :leg_swollen
+      t.integer  :lightheadedness
       t.references :patient, foreign_key: true
 
       t.timestamps

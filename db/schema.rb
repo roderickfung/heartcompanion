@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 20161001015755) do
     t.integer  "bp_low"
     t.integer  "weight_num"
     t.string   "weight_type"
-    t.string   "exerting_breath"
-    t.string   "night_breath"
-    t.string   "leg_swollen"
-    t.string   "lightheadedness"
+    t.integer  "exerting_breath"
+    t.integer  "night_breath"
+    t.integer  "leg_swollen"
+    t.integer  "lightheadedness"
     t.integer  "patient_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
