@@ -23,6 +23,7 @@ namespace :db do
 				email: Faker::Internet.email,
 				phone: Faker::PhoneNumber.phone_number,
 				address: x,
+				city: 'Vancouver',
 				password: '123456',
 				password_confirmation: '123456'
 			)
@@ -52,7 +53,7 @@ namespace :db do
 				sex: ["Male", "Female"].sample,
 				age: rand(30..90),
 				address: add,
-				phone: "#{pn.to_i}",
+				phone: "#{pn}",
 				password: '123456',
 				password_confirmation: '123456',
 				clinician_id: rand(1..6),

@@ -4,7 +4,10 @@
   </div>
 </div>
 
-<div class='page-space-lg'></div>
+<div class='page-space'></div>
 
+<%= render '/clinicians/patients/show_partial/patprofile', patient: @patient %>
 
-<%= render '/clinicians/patients/show_partial/bpstat', patient: @patient, plogs: @plogs %>
+<div class='page-space'></div>
+
+<%= render '/clinicians/patients/show_partial/bpstat', patient: @patient%>

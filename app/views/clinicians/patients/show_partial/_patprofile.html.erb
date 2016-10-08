@@ -1,0 +1,49 @@
+<div class='row'>
+  <div class='col-sm-9'>
+
+    <div class='panel panel-info'>
+      <div class='panel-heading'>
+        <h4 style='color: #fff;'>Basic Profile</h4>
+        <%=link_to 'Edit Parameters', edit_clinicians_patient_path, class: 'btn btn-default profile-btn'%>
+      </div>
+      <div class='panel-body'>
+        <div class='row'>
+          <div class='col-sm-3'>
+            <p>First Name: &nbsp;&nbsp;<b><%= patient.first_name%></b></p>
+            <p>Last Name: &nbsp;&nbsp;<b><%= patient.last_name%></b></p>
+            <p>Age: &nbsp;&nbsp;<b><%= patient.age%></b></p>
+            <p>Sex: &nbsp;&nbsp;<b><%= patient.sex%></b></p>
+          </div>
+          <div class='col-sm-4'>
+            <p>Care Card Number: &nbsp;&nbsp;<b><%=patient.care_id%></b></p>
+            <p>Phone Number: &nbsp;&nbsp;<b><%= patient.phone%></b></p>
+            <p>Address: &nbsp;&nbsp;<b><%= patient.address%></b></p>
+            <p>E-mail: &nbsp;&nbsp;<b><%= patient.email%></b></p>
+          </div>
+          <div class='col-sm-3'>
+            <p><b>Current Vital Triggers</b></p>
+            <p>Diastolic BP: &nbsp;&nbsp;<b><%= patient.bplow%></b></p>
+            <p>Systolic BP: &nbsp;&nbsp;<b><%= patient.bphigh%></b></p>
+            <p>Min Weight: &nbsp;&nbsp;<b><%= patient.lblow%></b></p>
+          </div>
+          <div class='col-sm-2'>
+            <p></p>
+            <p>Min BPM: &nbsp;&nbsp;<b><%= patient.hrlow%></b></p>
+            <p>Max BPM: &nbsp;&nbsp;<b><%= patient.hrhigh%></b></p>
+            <p>Max Weight: &nbsp;&nbsp;<b><%= patient.lbhigh%></b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-3'>
+    <div class='panel panel-info'>
+      <div class='panel-heading'>
+        <h4 style='color: #fff;'>Profile Picture</h4>
+      </div>
+      <div class='panel-body'>
+
+      </div>
+    </div>
+  </div>
+</div>

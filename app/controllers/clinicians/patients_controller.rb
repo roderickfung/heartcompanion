@@ -49,7 +49,12 @@ class Clinicians::PatientsController < ApplicationController
   end
 
   def update
-
+    if @patient.update patient_params
+      redirect_to clinicians_patient_path(@patient), notice: 'Parameters Updated'
+    else
+      flash[:alert] = @patient.errors.full_messages.to_sentence
+      render :edit
+    end
   end
 
   protected
@@ -63,7 +68,7 @@ class Clinicians::PatientsController < ApplicationController
   end
 
   def patient_params
-    params.require(:patient).permit(:bp_hi , :bp_low, :heartrate, :weight_num)
+    params.require(:patient).permit(:bphigh , :bplow, :hrhigh, :hrlow, :lbhigh, :lblow)
   end
 
 end
