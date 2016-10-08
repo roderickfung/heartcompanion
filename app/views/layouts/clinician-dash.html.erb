@@ -17,7 +17,11 @@
           </ul>
           <ul class='nav navbar-nav navbar-right'>
             <%if clinician_signed_in?%>
-              <li><%=link_to "#{current_clinician.full_name}", clinician_path(@clinician)%></li>
+              <li>
+                <%=link_to clinician_path(@clinician) do %>
+                  <%=image_tag current_clinician.profile_image.thumb, height: '15', width: '15', class: 'nav-icon'%>&nbsp;&nbsp;&nbsp;<%= current_clinician.full_name %>
+                <%end%>
+              </li>
             <%else%>
               <li><%=link_to "Welcome!", '#'%></li>
             <%end%>
