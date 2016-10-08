@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Use jquery UI
+gem 'jquery-ui-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -44,6 +46,13 @@ gem 'cancancan'
 
 #FSM - unsure whether I need it
 # gem 'aasm'
+
+# chartjs
+# gem 'chart-js-rails'
+# gem 'chartjs-ror'
+gem 'chartkick'
+gem 'groupdate', '~> 2.1.1'
+gem 'active_median', '~> 0.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

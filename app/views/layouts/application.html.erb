@@ -3,6 +3,7 @@
   <head>
     <title>Heartapp</title>
     <%= csrf_meta_tags %>
+    <%= javascript_include_tag "https://www.google.com/jsapi" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -15,8 +16,7 @@
         </ul>
         <ul class='nav navbar-nav navbar-right'>
           <%if clinician_signed_in?%>
-            <li><%=link_to "#{current_clinician.full_name}", clinician_path(@clinician)%></li>
-          <%elsif patient_signed_in?%>
+            <li><%=link_to "#{current_clinician.full_name}", clinician_path(@clinician)%></li> <%elsif patient_signed_in?%>
             <li><%=link_to "#{current_patient.full_name}", patient_path(@patient)%></li>
           <%else%>
             <li><%=link_to "Welcome!", '#'%></li>

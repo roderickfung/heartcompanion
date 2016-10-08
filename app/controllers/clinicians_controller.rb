@@ -22,8 +22,9 @@ class CliniciansController < ApplicationController
   end
 
   def show
-    @clinician
-
+    @patient = @clinician.patients
+    # @oldpat = @patients.where(age: 60..100).order(age: :desc)
+    @atrisk = at_risk_patient
     render layout: 'clinician-dash'
   end
 
@@ -60,6 +61,17 @@ class CliniciansController < ApplicationController
 
   def set_clinician
     @clinician = Clinician.find_by_auth_token cookies[:clinician_auth]
+  end
+
+  def at_risk_patient
+    @clinician = Clinician.find_by_auth_token cookies[:clinician_auth]
+    @atrisk = []
+    @patients = @clinician.patients.each do |patient|
+      if patient.patient_logs.average(:heartrate).to_i > 85
+        @atrisk.push(patient)
+      end
+    end
+    return @atrisk
   end
 
 end

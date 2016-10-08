@@ -1,0 +1,12 @@
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='panel panel-info'>
+      <div class='panel-heading'>
+        Blood Pressure Analytics
+      </div>
+      <div class='panel-body'>
+        <%= area_chart patient.patient_logs.group_by_day(:date).maximum(:bp_hi).limit(30)%>
+      </div>
+    </div>
+  </div>
+</div>

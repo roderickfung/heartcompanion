@@ -3,6 +3,7 @@
   <head>
     <title>Heartapp</title>
     <%= csrf_meta_tags %>
+    <%= javascript_include_tag "https://www.google.com/jsapi" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -44,16 +45,30 @@
         </ul>
       </div>
     </nav>
-    <div class='container'>
-      <div class='page-space-lg'></div>
-      <div class='alert-success'>
-        <center><%=flash[:notice]%></center>
+    <!-- Side Nav -->
+    <div id="wrapper">
+      <div class="overlay"></div>
+      <%= render 'patients/sidebar', patient: @patient %>
+
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
+        <div class="container">
+          <div class='alert-success'>
+            <center><%=flash[:notice]%></center>
+          </div>
+          <div class='alert-danger'>
+            <center><%=flash[:alert]%></center>
+          </div>
+          <div class="row">
+            <%=yield%>
+          </div>
+        </div>
       </div>
-      <div class='alert-danger'>
-        <center><%=flash[:alert]%></center>
-      </div>
-      <div class='page-space'></div>
-      <%= render 'patients/patient-nav', patient: @patient %>
-    </div>
+      <!-- /#page-content-wrapper -->
   </body>
 </html>

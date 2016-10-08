@@ -1,6 +1,7 @@
 class Patient < ApplicationRecord
   has_secure_password
   belongs_to :clinician
+  has_many :patient_logs
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :care_id, presence: true, numericality: {greater_than: 9845000000, less_than: 9999999999}
