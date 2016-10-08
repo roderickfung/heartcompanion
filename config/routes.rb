@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :patients, only: [:show, :edit, :update]
 
   namespace :clinicians, path: 'clinician' do
-    resources :patients, only: [:new, :create, :index, :show]
+    resources :patients, only: [:new, :create, :index, :show, :edit, :update]
   end
 
   namespace :patients, path: 'patient' do
