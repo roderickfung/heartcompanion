@@ -47,6 +47,13 @@ gem 'cancancan'
 #FSM - unsure whether I need it
 # gem 'aasm'
 
+# chartjs
+# gem 'chart-js-rails'
+# gem 'chartjs-ror'
+gem 'chartkick'
+gem 'groupdate', '~> 2.1.1'
+gem 'active_median', '~> 0.1.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platform: :mri

@@ -1,1 +1,10 @@
-<h1>Clinician Patient Show</h1>
+<div class='row'>
+  <div class='col-sm-4'>
+    <h2><%=@patient.full_name%>'s Profile</h2>
+  </div>
+</div>
+
+<div class='page-space-lg'></div>
+
+
+<%= render '/clinicians/patients/show_partial/bpstat', patient: @patient%>

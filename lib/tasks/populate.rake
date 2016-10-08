@@ -72,5 +72,38 @@ namespace :db do
 			password_confirmation: 'r2d34k5',
 			clinician_id: 6
 		)
+
+		@counter = (1..100).to_a
+		@counter.each do |counter|
+			Patient.all.each do |patient|
+				@patient_log = PatientLog.create!(
+				patient_id: patient.id,
+				date: counter.days.ago,
+				heartrate: rand(55..120),
+				bp_hi: rand(80..180),
+				bp_low: rand(40..100),
+				weight_num: rand(90..250),
+				exerting_breath: rand(-10..10),
+				night_breath: rand(-10..10),
+				leg_swollen: rand(-10..10),
+				lightheadedness: rand(-10..10),
+				)
+			end
+		end
+
+		# 1000.times do |x|
+		# 	@patient_log = PatientLog.create!(
+		# 		patient_id: rand(1..51),
+		# 		date: rand(1..365).days.ago,
+		# 		heartrate: rand(55..120),
+		# 		bp_hi: rand(80..180),
+		# 		bp_low: rand(50..100),
+		# 		weight_num: rand(90..200),
+		# 		exerting_breath: rand(-10..10),
+		# 		night_breath: rand(-10..10),
+		# 		leg_swollen: rand(-10..10),
+		# 		lightheadedness: rand(-10..10)
+		# 	)
+		# end
 	end
 end
