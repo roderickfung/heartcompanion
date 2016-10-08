@@ -61,6 +61,25 @@
   overflow-x: scroll;
 }
 
+.nav-icon {
+  border-radius: 50%;
+}
+
+.side-nav-icon {
+  border-radius: 50%;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.side-nav-txt {
+  color: #fff;
+  margin-left: 2rem;
+}
+
+.navbar-after-top {
+  top: 40px !important;
+}
+
 /*
   currently unused styling
 */
