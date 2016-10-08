@@ -22,9 +22,16 @@ class CliniciansController < ApplicationController
   end
 
   def show
-    @patient = @clinician.patients
+    @patients = @clinician.patients
+    @datedp = []
+    @patients.each do |patient|
+      @datedp << patient if patient.patient_logs.last.date < 7.days.ago
+    end
     # @oldpat = @patients.where(age: 60..100).order(age: :desc)
     @atrisk = at_risk_patient
+
+
+
     render layout: 'clinician-dash'
   end
 
@@ -67,7 +74,8 @@ class CliniciansController < ApplicationController
     @clinician = Clinician.find_by_auth_token cookies[:clinician_auth]
     @atrisk = []
     @patients = @clinician.patients.each do |patient|
-      if patient.patient_logs.average(:heartrate).to_i > 85
+      last_log = patient.patient_logs.last
+      if last_log.bp_hi.to_i > patient.bphigh || last_log.bp_low.to_i < patient.bplow || last_log.heartrate > patient.hrhigh || last_log.heartrate < patient.hrlow || last_log.weight_num > patient.lbhigh || last_log.weight_num < patient.lblow
         @atrisk.push(patient)
       end
     end

@@ -19,6 +19,7 @@ class Patient < ApplicationRecord
   mount_uploader :profile_image, ProfileImageUploader
 
   before_validation :set_approved_defaults
+  before_validation :set_parameters_defaults
   before_create { generate_token(:auth_token) }
 
   def full_name
@@ -35,5 +36,14 @@ class Patient < ApplicationRecord
 
   def set_approved_defaults
     self.approved ||= false
+  end
+
+  def set_parameters_defaults
+    self.lbhigh ||= 185
+    self.lblow ||= 110
+    self.hrhigh ||= 85
+    self.hrlow ||= 53
+    self.bplow ||= 90
+    self.bphigh ||= 110
   end
 end

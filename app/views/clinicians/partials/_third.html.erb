@@ -2,43 +2,29 @@
   <div class='panel panel-warning'>
 
     <div class='panel-heading'>
-      <h6 style='color: #fff;'>Patients with average heartrate > 85 </h6>
+      <h6 style='color: #fff;'> High Risk Patients </h6>
     </div>
-
-    <div class='panel-body dashboard-panel'>
-      <div class='row-fluid'>
-
-        <div class='col-sm-6'>
-          <h6>Full Name:</h6>
-        </div>
-
-        <div class='col-sm-3'>
-          <center>
-            <h6>BPM:</h6>
-          </center>
-        </div>
-
-        <div class='col-sm-3'>
-          <h6>BP:</h6>
-        </div>
-      </div>
-
-      <% atrisk.each do |patient| %>
-        <div class='row-fluid'>
-          <div class='col-sm-6'>
-            <%=patient.full_name%>
-          </div>
-          <div class='col-sm-3'>
-            <center>
-              <%= patient.patient_logs.average(:heartrate).to_i %>
-            </center>
-          </div>
-          <div class='col-sm-3'>
-            <%= patient.patient_logs.average(:bp_hi).to_i%> / <%=patient.patient_logs.average(:bp_low).to_i%>
-          </div>
-        </div>
-      <%end%>
-
+    <div class='dashboard-table dashboard-panel'>
+      <table class='table table-striped'>
+        <tr>
+          <th>Full Name</th>
+          <th>Heart Rate</th>
+          <th>Blood Pressure</th>
+        </tr>
+        <% atrisk.each do |patient|%>
+          <tr>
+            <td>
+              <%= link_to clinicians_patient_path(patient) do %>
+                <b><%=patient.full_name%></b>
+              <%end%>
+            </td>
+            <td><%=patient.patient_logs.average(:heartrate).to_i%></td>
+            <td>
+              <%=patient.patient_logs.average(:bp_hi).to_i%> / <%=patient.patient_logs.average(:bp_low).to_i%>
+            </td>
+          </tr>
+        <%end%>
+      </table>
     </div>
   </div>
 </div>
