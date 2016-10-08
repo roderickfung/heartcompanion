@@ -1,0 +1,10 @@
+<div class='col-sm-4'>
+  <div class='panel panel-danger'>
+    <div class='panel-heading'>
+      <h6 style='color: #fff;'>Patients without logs for the past 7 days:</h6>
+    </div>
+    <div class='panel-body dashboard-panel'>
+      <%= pie_chart PatientLog.where(heartrate: 80..200)%>
+    </div>
+  </div>
+</div>

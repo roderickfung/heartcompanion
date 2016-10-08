@@ -28,22 +28,26 @@
             <p>Phone Number: &nbsp;&nbsp;<b><%= patient.phone%></b></p>
           </div>
         </div>
+        <div class='page-space'></div>
         <div class='row'>
           <div class='col-sm-12'>
-            <p><b>Current Vital Triggers</b></p>
+            <p><b>Current Triggers</b></p>
           </div>
         </div>
         <div class='row'>
-          <div class='col-sm-6'>
-            <p>Diastolic BP: &nbsp;&nbsp;<b><%= patient.bplow%></b></p>
-            <p>Systolic BP: &nbsp;&nbsp;<b><%= patient.bphigh%></b></p>
-            <p>Min Weight: &nbsp;&nbsp;<b><%= patient.lblow%></b></p>
+          <div class='col-sm-4'>
+            <p>Diastolic Blood Pressure: &nbsp;&nbsp;<b><%= patient.bplow%></b></p>
+            <p>Systolic Blood Pressure: &nbsp;&nbsp;<b><%= patient.bphigh%></b></p>
+
           </div>
-          <div class='col-sm-6'>
-            <p></p>
-            <p>Min BPM: &nbsp;&nbsp;<b><%= patient.hrlow%></b></p>
-            <p>Max BPM: &nbsp;&nbsp;<b><%= patient.hrhigh%></b></p>
-            <p>Max Weight: &nbsp;&nbsp;<b><%= patient.lbhigh%></b></p>
+          <div class='col-sm-4'>
+            <p>Minimum Heart Rate: &nbsp;&nbsp;<b><%= patient.hrlow%></b></p>
+            <p>Maximum Heart Rate: &nbsp;&nbsp;<b><%= patient.hrhigh%></b></p>
+
+          </div>
+          <div class='col-sm-4'>
+            <p>Minimum Weight: &nbsp;&nbsp;<b><%= patient.lblow%></b></p>
+            <p>Maximum Weight: &nbsp;&nbsp;<b><%= patient.lbhigh%></b></p>
           </div>
         </div>
       </div>

@@ -22,6 +22,16 @@
             </div>
             <div class='panel-body'>
               <div class='row'>
+                <div class='col-sm-12'>
+                  <center>
+                    <%= link_to clinicians_patient_path(patient) do%>
+                      <%=image_tag patient.profile_image.largethumb%>
+                    <%end%>
+                  </center>
+                </div>
+              </div>
+              <div class='form-space'></div>
+              <div class='row'>
                 <div class=col-sm-6>
                   <p>Age: <%= patient.age %></p>
                   <p>Sex: <%= patient.sex %></p>

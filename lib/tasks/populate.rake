@@ -85,7 +85,7 @@ namespace :db do
 			clinician_id: 6
 		)
 
-		@counter = (1..100).to_a
+		@counter = (100).downto(1).to_a
 		@counter.each do |counter|
 			Patient.all.each do |patient|
 				@patient_log = PatientLog.create!(

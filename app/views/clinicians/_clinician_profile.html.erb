@@ -1,0 +1,59 @@
+<div class='row'>
+
+  <div class='col-sm-8'>
+    <!-- Profile -->
+    <div class='panel panel-warning'>
+      <div class='panel-heading'>
+        <div class='container'>
+          <h4 style='color: #fff;'>Clinician Profile</h4>
+        </div>
+      </div>
+      <div class='panel-body clinician-panel'>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-sm-12'>
+              <h4>
+                <%if clinician.approved == true%>
+                  Status: &nbsp;&nbsp;<b>Active</b>
+                <%else%>
+                  Status: &nbsp;&nbsp;<b>Inactive</b>
+                <%end%>
+              </h4>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-4'>
+              <h5>First Name: &nbsp;&nbsp;<b><%=clinician.first_name%></b></h5>
+              <h5>Last Name: &nbsp;&nbsp;<b><%=clinician.last_name%></b></h5>
+              <p>E-mail: &nbsp;&nbsp;<b><%=clinician.email%></b></p>
+              <p>Phone Number: &nbsp;&nbsp;<b><%=clinician.phone%></b></p>
+            </div>
+            <div class='col-sm-4'>
+              <p>Address: &nbsp;&nbsp;<b><%=clinician.address%></b></p>
+              <p>City: &nbsp;&nbsp;<b><%=clinician.city%></b></p>
+              <p>Province: &nbsp;&nbsp;<b><%=clinician.province%></b></p>
+              <p>Postal Code: &nbsp;&nbsp;<b><%=clinician.postal_code%></b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Picture -->
+  <div class='col-sm-4'>
+    <div class='panel panel-warning'>
+      <div class='panel-heading'>
+        <div class='container'>
+          <h4 style='color: #fff;'>Profile Picture</h4>
+        </div>
+      </div>
+      <div class='panel-body'>
+        <center>
+          <%=image_tag clinician.profile_image.cprofile%>
+        </center>
+      </div>
+    </div>
+  </div>
+
+</div>
