@@ -1,6 +1,8 @@
 class Patients::PatientLogsController < ApplicationController
   before_action :authenticate_patient!
   before_action :set_patient
+  before_action :set_patient_log, only: [:show]
+  before_action :set_last_seven_logs
 
   def new
     @plog = PatientLog.new
@@ -21,11 +23,14 @@ class Patients::PatientLogsController < ApplicationController
   end
 
   def index
-
+    @plogs = @patient.patient_logs
+    @plwk = @patient.patient_logs.last(7)
+    render layout: 'patient-dash'
   end
 
   def show
 
+    render layout: 'patient-dash'
   end
 
   def edit
@@ -48,6 +53,14 @@ class Patients::PatientLogsController < ApplicationController
 
   def set_patient
     @patient = Patient.find_by_auth_token cookies[:patient_auth]
+  end
+
+  def set_patient_log
+    @log = PatientLog.find params[:id]
+  end
+
+  def set_last_seven_logs
+    @plwk = @patient.patient_logs.last(7)
   end
 
 end

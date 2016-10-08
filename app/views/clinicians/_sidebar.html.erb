@@ -4,27 +4,19 @@
         <li><%= link_to 'Heart Companion', root_path%></li>
         <li><%= link_to 'Dashboard', clinician_path(@clinician)%></li>
         <li><%= link_to 'Patient List', clinicians_patients_path%></li>
-        <li><a href="#">Events</a></li>
-        <li><a href="#">Team</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quick Navigation &nbsp;<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li class="dropdown-header">Dropdown heading</li>
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
+            <li class="dropdown-header">Full Patient List</li>
+            <% @clinician.patients.each do |patient| %>
+              <%=link_to clinicians_patient_path(patient) do%>
+                <li><%=patient.full_name%></li>
+              <%end%>
+            <%end%>
           </ul>
         </li>
         <li>
-            <a href="#">Services</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
-        </li>
-        <li>
-            <a href="https://twitter.com/maridlcrmn">Follow me</a>
+            <a href="https://github.com/roderickfung/heartcompanion">View Source</a>
         </li>
     </ul>
 </nav>

@@ -1,6 +1,7 @@
 class PatientsController < ApplicationController
   before_action :authenticate_patient!
   before_action :set_patient
+  before_action :set_last_seven_logs
 
   def show
 
@@ -15,7 +16,7 @@ class PatientsController < ApplicationController
   def update
     # @patient.approved = false
     if @patient.update! patient_params
-      cookies.delete(:patient_auth)
+      # cookies.delete(:patient_auth)
       redirect_to root_path, notice: "Profile Updated, please await for administrator's approval."
     else
       flash[:alert] = @patient.errors.full_messages.to_sentence
@@ -31,6 +32,10 @@ class PatientsController < ApplicationController
 
   def patient_params
     params.require(:patient).permit(:profile_image, :care_id, :first_name, :last_name, :email, :phone, :address, :city, :province, :postal_code, :age, :sex, :password, :password_confirmation)
+  end
+
+  def set_last_seven_logs
+    @plwk = @patient.patient_logs.last(7)
   end
 
 end
