@@ -85,6 +85,39 @@
     </div>
   </div>
 
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
+        <%= f.label :city, class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.text_field :city, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
+        <%= f.label :province, class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.select :province, ["Alberta", "British Columbia", 'Saskatchewan', 'Manitoba', 'Ontario', 'Quebec', 'NFL & Labrador', 'Nova Scotia / New Brunswick / PEI', 'Nunavit / NW Territories'], {}, {class:'form-control'}%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
+        <%= f.label :postal_code, 'Postal Code', class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.text_field :postal_code, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
   <div class='page-space-lg'></div>
 
   <div class='form-group'>

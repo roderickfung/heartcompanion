@@ -34,50 +34,19 @@
   margin-bottom: 1rem;
 }
 
-.text-right {
-  text-align: right;
-  align-content: right;
-}
-
-.panel-heading-sm {
-  .panel-heading
-  height: 10px;
-}
-
-.dashboard-title-panel {
-  /*padding: 1px 10px 10px 10px;*/
-  background-color: #CE5A52;
-  border-radius: 3px;
-}
-
-.dashboard-title-text {
-  color: #fff;
-}
-
-.top-level-panels {
-  min-height: 20rem;
-}
-
 .profile-panel {
   min-height: 255px;
+}
+
+.clinician-panel {
+  min-height: 180px;
+}
+
+.dashboard-panel {
+  min-height: 250px;
+  max-height: 250px;
 }
 
 /*
   currently unused styling
 */
-
-.align-flex-box {
-  display: flex;
-}
-
-.container-spacing {
-  margin-left: 20rem;
-  margin-right: 37rem;
-}
-
-/*.panel-heading {
-  .panel-heading-sm {
-    height: 10px !important;
-    background-color: inherit;
-  }
-}*/
