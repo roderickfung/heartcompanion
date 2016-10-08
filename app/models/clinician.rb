@@ -4,6 +4,8 @@ class Clinician < ApplicationRecord
 
   before_validation :set_admin_defaults
   before_validation :set_approved_defaults
+  geocoded_by :address
+  after_validation :geocode
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 

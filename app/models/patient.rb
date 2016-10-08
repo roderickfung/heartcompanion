@@ -20,6 +20,10 @@ class Patient < ApplicationRecord
 
   before_validation :set_approved_defaults
   before_validation :set_parameters_defaults
+
+  geocoded_by :address
+  after_validation :geocode
+  
   before_create { generate_token(:auth_token) }
 
   def full_name

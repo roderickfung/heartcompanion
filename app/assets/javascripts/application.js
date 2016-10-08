@@ -15,6 +15,8 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require underscore
+//= require gmaps/google
 //= require Chart.bundle
 //= require chartkick
 //= require turbolinks

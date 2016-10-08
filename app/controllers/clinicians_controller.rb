@@ -30,7 +30,10 @@ class CliniciansController < ApplicationController
     # @oldpat = @patients.where(age: 60..100).order(age: :desc)
     @atrisk = at_risk_patient
 
-
+    @hash = Gmaps4rails.build_markers(@patients) do |patient, marker|
+      marker.lat patient.latitude
+      marker.lng patient.longitude
+    end
 
     render layout: 'clinician-dash'
   end
