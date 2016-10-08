@@ -4,6 +4,7 @@ class Patients::CliniciansController < ApplicationController
 
   def show
     @clinician = @patient.clinician
+    @plwk = @patient.patient_logs.last(7)
     render layout: 'patient-dash'
   end
 
