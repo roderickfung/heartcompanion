@@ -1,24 +1,19 @@
-# README
+# Heart Companion
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Heart Companion is a data logging, analytic and management application targeting cardiac patients with Chronic Heart Failure in Canada. Each individual patient will upload their vitals daily, allowing their designated cardiologist to view and track the patient's disease state / progression.
 
-Things you may want to cover:
+The application is built under RESTful Ruby on Rails architecture:
+Some of the technical features include:
 
-* Ruby version
+* User Authentication through BCRYPT
+* Custom dynamic range sliders using jQuery-UI
+* Dynamic Charts and data-analytics using ChartKick, Chart.js
+* Customized Styling on top of Twitter Bootstrap
 
-* System dependencies
+# Testing Environment
+* Built under TDD environment with RSPEC
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Upcoming Features
+* Advanced Search Engine using pg_Search
+* Integration with React-Native IOS/Android Application
+* Integration with FitBit API for advanced stats tracking

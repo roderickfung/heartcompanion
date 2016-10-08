@@ -26,9 +26,10 @@ class Clinicians::PatientsController < ApplicationController
   end
 
   def show
-    @bphis, @bplows, @heartrates, @weights, @dizzys, @nbreaths, @ebreaths, @swells = [], [], [], [], [], [], [], []
+    @bphis, @bplows, @heartrates, @weights, @dizzys, @nbreaths, @ebreaths, @swells, @plogs = [], [], [], [], [], [], [], [], []
 
-    @patient.patient_logs.each do |log|
+    @patient.patient_logs.limit(30).each do |log|
+      @plogs << log
       @bphis << log.bp_hi
       @bplows << log.bp_low
       @heartrates << log.heartrate
