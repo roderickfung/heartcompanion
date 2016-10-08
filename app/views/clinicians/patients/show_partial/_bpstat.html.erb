@@ -5,7 +5,8 @@
         Blood Pressure Analytics
       </div>
       <div class='panel-body'>
-        <%= area_chart patient.patient_logs.group_by_day(:date).maximum(:bp_hi).limit(30)%>
+        <%= area_chart patient.patient_logs.group_by_day(:date).maximum(:bp_hi)%>
+        <%# area_chart patient.patient_logs.last(30).order_by(date: :desc)%>
       </div>
     </div>
   </div>
