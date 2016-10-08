@@ -3,7 +3,7 @@
 <div class='row'>
 
   <!-- Panel 1 -->
-  <%= render '/clinicians/partials/first', {patients: @patients}%>
+  <%= render '/clinicians/partials/first', {patients: @patients, datedp: @datedp}%>
 
   <!-- Panel 2 -->
   <%= render '/clinicians/partials/second', {patients: @patients, clinician: @clinician}%>
@@ -20,7 +20,7 @@
         <h4 style='color: #fff;'>Patient Map</h4>
       </div>
       <div class='panel-body'>
-        
+
       </div>
     </div>
   </div>

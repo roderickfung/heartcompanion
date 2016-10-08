@@ -1,1 +1,90 @@
-<h3>Submission: <%= @log.date.strftime("%d %b, %Y")%></h3>
+<%= render '/clinicians/patients/show_partial/patprofile', patient: @patient %>
+
+<div class='page-space'></div>
+
+<div class='row'>
+  <div class='col-sm-5'>
+    <h3>Submission: <%= @log.date.strftime("%d %b, %Y")%></h3>
+  </div>
+</div>
+
+<div class='form-space'></div>
+
+<div class='row'>
+
+  <!-- Log BP Panel -->
+  <div class='col-sm-3'>
+    <div class='panel panel-danger panel-log'>
+      <div class='panel-heading'>
+        <div class='container'>
+          <h5 style='color: #fff;'>Blood Pressure Measurements</h5>
+        </div>
+      </div>
+      <div class='panel-body'>
+        <div class='col-sm-12'>
+          <center>
+            <p><b>Systolic Blood Pressure: </b>&nbsp;&nbsp; <span style='color: #CE5A52;'><%=@log.bp_hi%></span></p>
+            <p><b>Diastolic Blood Pressure: </b>&nbsp;&nbsp; <span style='color: #CE5A52;'><%=@log.bp_low%></span></p>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Log HR & Weight Panel -->
+  <div class='col-sm-3'>
+    <div class='panel panel-warning panel-log'>
+      <div class='panel-heading'>
+        <div class='container'>
+          <h5 style='color: #fff;'>Heart Rate & Weight Measurements</h5>
+        </div>
+      </div>
+      <div class='panel-body'>
+        <div class='col-sm-12'>
+          <center>
+            <p><b>Heart Rate: </b>&nbsp;&nbsp; <span style='color: #CE5A52;'><%=@log.heartrate%></span></p>
+            <p><b>Weight: </b>&nbsp;&nbsp; <span style='color: #CE5A52;'><%=@log.weight_num%></span> &nbsp; <%=@log.weight_type%></p>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Breathlessness Panel -->
+  <div class='col-sm-3'>
+    <div class='panel panel-info panel-log'>
+      <div class='panel-heading'>
+        <div class='container'>
+          <h5 style='color: #fff;'>Breathlessness Ratings</h5>
+        </div>
+      </div>
+      <div class='panel-body'>
+        <div class='col-sm-12'>
+          <center>
+            <p><b>Exertion Breathlessness </b>&nbsp;&nbsp; <span style='color: #CE5A52;'><%=@log.exerting_breath%></span></p>
+            <p><b>Night Breathlessness </b>&nbsp;&nbsp; <span style='color: #CE5A52;'><%=@log.night_breath%></span></p>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ankle & Head Panel -->
+  <div class='col-sm-3'>
+    <div class='panel panel-success panel-log'>
+      <div class='panel-heading'>
+        <div class='container'>
+          <h5 style='color: #fff;'>Dizziness & Lightheaded Ratings</h5>
+        </div>
+      </div>
+      <div class='panel-body'>
+        <div class='col-sm-12'>
+          <center>
+            <p><b>Ankle Swelling </b>&nbsp;&nbsp; <span style='color: #CE5A52;'><%=@log.leg_swollen%></span></p>
+            <p><b>Lightheadedness </b>&nbsp;&nbsp; <span style='color: #CE5A52;'><%=@log.lightheadedness%></span></p>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

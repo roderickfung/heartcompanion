@@ -37,10 +37,10 @@ namespace :db do
 			username: 'mdavid',
 			email: 'davidcfmo@gmail.com',
 			phone: '1234567890',
-			address: '9110 Maple Court',
-			city: 'Richmond',
+			address: '701 West Georgia Street',
+			city: 'Vancouver',
 			province: 'British Columbia',
-			postal_code: 'V7E1G7',
+			postal_code: 'V7Y1G5',
 			password: '123456',
 			password_confirmation: '123456'
 		)
@@ -69,23 +69,23 @@ namespace :db do
 		end
 
 		@patient = Patient.create!(
-			care_id: '9845412517',
+			care_id: '9845111111',
 			first_name: 'Roderick',
 			last_name: 'Fung',
 			email: 'roderickfung@gmail.com',
 			age: 27,
 			sex: "Male",
-			address: '#206 - 14088 Riverport Way',
-			city: 'Richmond',
+			address: '1128 West Georgia Street',
+			city: 'Vancouver',
 			province: 'British Columbia',
-			postal_code: 'V6W0A7',
+			postal_code: 'V6E0A8',
 			phone: '7783211711',
 			password: 'r2d34k5',
 			password_confirmation: 'r2d34k5',
 			clinician_id: 6
 		)
 
-		@counter = (100).downto(1).to_a
+		@counter = (100).downto(8).to_a
 		@counter.each do |counter|
 			Patient.all.each do |patient|
 				@patient_log = PatientLog.create!(

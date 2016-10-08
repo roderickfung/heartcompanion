@@ -43,8 +43,22 @@
 }
 
 .dashboard-panel {
+  position: relative;
   min-height: 250px;
   max-height: 250px;
+  overflow-y: scroll;
+}
+
+.dashboard-table {
+  min-height: 250px;
+  overflow: scroll;
+  max-hight: 250px;
+}
+
+.panel-log {
+  min-height: 140px;
+  max-height: 140px;
+  overflow-x: scroll;
 }
 
 /*
