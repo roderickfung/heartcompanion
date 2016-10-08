@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008080437) do
+ActiveRecord::Schema.define(version: 20161008083634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20161008080437) do
     t.string   "postal_code"
     t.float    "longitude"
     t.float    "latitude"
+    t.string   "profile_image"
     t.index ["auth_token"], name: "index_clinicians_on_auth_token", using: :btree
     t.index ["username", "email"], name: "index_clinicians_on_username_and_email", using: :btree
   end
@@ -81,10 +82,11 @@ ActiveRecord::Schema.define(version: 20161008080437) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "city"
-    t.string   "provice"
+    t.string   "province"
     t.string   "postal_code"
     t.float    "longitude"
     t.float    "latitude"
+    t.string   "profile_image"
     t.index ["auth_token"], name: "index_patients_on_auth_token", using: :btree
     t.index ["bphigh", "bplow"], name: "index_patients_on_bphigh_and_bplow", using: :btree
     t.index ["care_id", "email"], name: "index_patients_on_care_id_and_email", using: :btree

@@ -7,6 +7,9 @@
 # Ignore populate.rake file
 /lib/tasks/populate.rake
 
+# Ignore Images
+/public/uploads
+
 # Ignore bundler config.
 /.bundle
 

@@ -49,7 +49,7 @@ class Clinicians::PatientsController < ApplicationController
   end
 
   def update
-    if @patient.update patient_params
+    if @patient.update patient_trigger_params
       redirect_to clinicians_patient_path(@patient), notice: 'Parameters Updated'
     else
       flash[:alert] = @patient.errors.full_messages.to_sentence
@@ -68,6 +68,10 @@ class Clinicians::PatientsController < ApplicationController
   end
 
   def patient_params
+    params.require(:patient).permit(:care_id, :first_name, :last_name, :age, :sex, :email, :phone, :address, :city, :province, :postal_code, :password, :password_confirmation)
+  end
+
+  def patient_trigger_params
     params.require(:patient).permit(:bphigh , :bplow, :hrhigh, :hrlow, :lbhigh, :lblow)
   end
 

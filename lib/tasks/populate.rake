@@ -5,11 +5,11 @@ namespace :db do
 		Rake::Task['db:reset'].invoke
 
 		address = [
-								'2244 Hastings Street, Vancouver',
-								'1326 Davie St, Vancouver',
-								'6006 Burning Passage, Anyox',
-								'615 Cotton Spring Circle, Donald Landing',
-								'5319 Quiet Fox Terrace, Blaeberry'
+								['2244 Hastings Street', 'Burnaby', 'V5C2H5'],
+								['1326 Davie St', 'Vancouver', 'V6E1N6'],
+								['1176 Nassau Drive', 'Vancouver', 'V5P2B5'],
+								['6719 Silver Avenue', 'Burnaby', 'V5H2Y7'],
+								['3380 Imperial Street', 'Burnaby', 'V5J1A2']
 							]
 
 		address.each do |x|
@@ -22,8 +22,10 @@ namespace :db do
 				username: full_name,
 				email: Faker::Internet.email,
 				phone: Faker::PhoneNumber.phone_number,
-				address: x,
-				city: 'Vancouver',
+				address: x[0],
+				city: x[1],
+				province: 'British Columbia',
+				postal_code: x[2],
 				password: '123456',
 				password_confirmation: '123456'
 			)
@@ -35,7 +37,10 @@ namespace :db do
 			username: 'mdavid',
 			email: 'davidcfmo@gmail.com',
 			phone: '1234567890',
-			address: '9110 Maple Court, Richmond, BC',
+			address: '9110 Maple Court',
+			city: 'Richmond',
+			province: 'British Columbia',
+			postal_code: 'V7E1G7',
 			password: '123456',
 			password_confirmation: '123456'
 		)
@@ -44,7 +49,7 @@ namespace :db do
 			add = Faker::Address.street_address
 			fn = Faker::Name.first_name
 			ln = Faker::Name.last_name
-			pn = Faker::PhoneNumber.phone_number
+			pn = Faker::PhoneNumber.cell_phone
 			@patient = Patient.create!(
 				care_id: Faker::Number.between(9845000000, 9999999999),
 				first_name: fn,
@@ -53,6 +58,9 @@ namespace :db do
 				sex: ["Male", "Female"].sample,
 				age: rand(30..90),
 				address: add,
+				city: Faker::Address.city,
+				province: Faker::Address.state,
+				postal_code: Faker::Address.zip,
 				phone: "#{pn}",
 				password: '123456',
 				password_confirmation: '123456',
@@ -67,7 +75,10 @@ namespace :db do
 			email: 'roderickfung@gmail.com',
 			age: 27,
 			sex: "Male",
-			address: '#206 - 14088 Riverport Way, Richmond. BC',
+			address: '#206 - 14088 Riverport Way',
+			city: 'Richmond',
+			province: 'British Columbia',
+			postal_code: 'V6W0A7',
 			phone: '7783211711',
 			password: 'r2d34k5',
 			password_confirmation: 'r2d34k5',
@@ -92,19 +103,5 @@ namespace :db do
 			end
 		end
 
-		# 1000.times do |x|
-		# 	@patient_log = PatientLog.create!(
-		# 		patient_id: rand(1..51),
-		# 		date: rand(1..365).days.ago,
-		# 		heartrate: rand(55..120),
-		# 		bp_hi: rand(80..180),
-		# 		bp_low: rand(50..100),
-		# 		weight_num: rand(90..200),
-		# 		exerting_breath: rand(-10..10),
-		# 		night_breath: rand(-10..10),
-		# 		leg_swollen: rand(-10..10),
-		# 		lightheadedness: rand(-10..10)
-		# 	)
-		# end
 	end
 end
