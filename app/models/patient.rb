@@ -12,9 +12,11 @@ class Patient < ApplicationRecord
   validates :sex, presence: true
   validates :phone, presence: true
   validates :address, presence: true
-  # validates :city, presence: true
-  # validates :province, presence: true
-  # validates :postal_code, presence: true, uniqueness: {scope: :address}
+  validates :city, presence: true
+  validates :province, presence: true
+  validates :postal_code, presence: true, uniqueness: {scope: :address}
+
+  mount_uploader :profile_image, ProfileImageUploader
 
   before_validation :set_approved_defaults
   before_create { generate_token(:auth_token) }

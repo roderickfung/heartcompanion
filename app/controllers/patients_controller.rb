@@ -8,11 +8,19 @@ class PatientsController < ApplicationController
   end
 
   def edit
+
     render layout: 'patient-dash'
   end
 
   def update
-
+    # @patient.approved = false
+    if @patient.update! patient_params
+      cookies.delete(:patient_auth)
+      redirect_to root_path, notice: "Profile Updated, please await for administrator's approval."
+    else
+      flash[:alert] = @patient.errors.full_messages.to_sentence
+      render :edit
+    end
   end
 
   protected
@@ -22,7 +30,7 @@ class PatientsController < ApplicationController
   end
 
   def patient_params
-    params.require(:patient).permit(:role, :care_id, :first_name, :last_name, :email, :phone, :address, :age, :sex, :password, :password_confirmation)
+    params.require(:patient).permit(:profile_image, :care_id, :first_name, :last_name, :email, :phone, :address, :city, :province, :postal_code, :age, :sex, :password, :password_confirmation)
   end
 
 end

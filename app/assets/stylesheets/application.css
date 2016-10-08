@@ -58,6 +58,10 @@
   min-height: 20rem;
 }
 
+.profile-panel {
+  min-height: 255px;
+}
+
 /*
   currently unused styling
 */

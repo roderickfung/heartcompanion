@@ -34,7 +34,7 @@ class CliniciansController < ApplicationController
   end
 
   def update
-    @clinician.approved = false
+    # @clinician.approved = false
     if @clinician.update clinician_params
       cookies.delete(:clinician_auth)
       redirect_to root_path, notice: 'Account Edited. An administrator will verify your changes.'
@@ -56,7 +56,7 @@ class CliniciansController < ApplicationController
   protected
 
   def clinician_params
-    params.require(:clinician).permit(:role, :username, :first_name, :last_name, :email, :phone, :address, :password, :password_confirmation)
+    params.require(:clinician).permit(:profile_image, :username, :first_name, :last_name, :email, :phone, :address, :password, :password_confirmation)
   end
 
   def set_clinician

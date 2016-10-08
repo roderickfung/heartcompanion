@@ -4,11 +4,13 @@
     <div class='panel panel-info'>
       <div class='panel-heading'>
         <h4 style='color: #fff;'>Basic Profile</h4>
-        <%=link_to 'Edit Parameters', edit_clinicians_patient_path, class: 'btn btn-default profile-btn'%>
+        <% if clinician_signed_in?%>
+          <%=link_to 'Edit Parameters', edit_clinicians_patient_path, class: 'btn btn-default profile-btn'%>
+        <%end%>
       </div>
-      <div class='panel-body'>
+      <div class='panel-body profile-panel'>
         <div class='row'>
-          <div class='col-sm-3'>
+          <div class='col-sm-4'>
             <p>First Name: &nbsp;&nbsp;<b><%= patient.first_name%></b></p>
             <p>Last Name: &nbsp;&nbsp;<b><%= patient.last_name%></b></p>
             <p>Age: &nbsp;&nbsp;<b><%= patient.age%></b></p>
@@ -16,17 +18,28 @@
           </div>
           <div class='col-sm-4'>
             <p>Care Card Number: &nbsp;&nbsp;<b><%=patient.care_id%></b></p>
-            <p>Phone Number: &nbsp;&nbsp;<b><%= patient.phone%></b></p>
             <p>Address: &nbsp;&nbsp;<b><%= patient.address%></b></p>
-            <p>E-mail: &nbsp;&nbsp;<b><%= patient.email%></b></p>
+            <p><b><%= patient.city%>, <%=patient.province%></b></p>
+            <p>Postal Code: &nbsp;&nbsp;<b><%= patient.postal_code%></b></p>
           </div>
-          <div class='col-sm-3'>
+          <div class='col-sm-4'>
+            <p>Contact Info:</p>
+            <p>E-mail: &nbsp;&nbsp;<b><%= patient.email%></b></p>
+            <p>Phone Number: &nbsp;&nbsp;<b><%= patient.phone%></b></p>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-sm-12'>
             <p><b>Current Vital Triggers</b></p>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-sm-6'>
             <p>Diastolic BP: &nbsp;&nbsp;<b><%= patient.bplow%></b></p>
             <p>Systolic BP: &nbsp;&nbsp;<b><%= patient.bphigh%></b></p>
             <p>Min Weight: &nbsp;&nbsp;<b><%= patient.lblow%></b></p>
           </div>
-          <div class='col-sm-2'>
+          <div class='col-sm-6'>
             <p></p>
             <p>Min BPM: &nbsp;&nbsp;<b><%= patient.hrlow%></b></p>
             <p>Max BPM: &nbsp;&nbsp;<b><%= patient.hrhigh%></b></p>
@@ -42,7 +55,9 @@
         <h4 style='color: #fff;'>Profile Picture</h4>
       </div>
       <div class='panel-body'>
-
+        <center>
+          <%=image_tag patient.profile_image.profile %>
+        </center>
       </div>
     </div>
   </div>

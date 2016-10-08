@@ -1,4 +1,4 @@
-<%= form_for [:clinicians, patient], html: {class: 'form-horizontal'} do |f| %>
+<%= form_for patient, html: {class: 'form-horizontal'} do |f| %>
 
   <div class='form-group'>
     <div class='row'>
@@ -116,7 +116,7 @@
         <%= f.label :province, class:'control-label span12 text-right'%>
       </div>
       <div class='col-xs-4 col-sm-4'>
-        <%= f.select :sex, ["Alberta", "British Columbia", 'Saskatchewan', 'Manitoba', 'Ontario', 'Quebec', 'NFL & Labrador', 'Nova Scotia / New Brunswick / PEI', 'Nunavit / NW Territories'], {}, {class:'form-control'}%>
+        <%= f.select :province, ["Alberta", "British Columbia", 'Saskatchewan', 'Manitoba', 'Ontario', 'Quebec', 'NFL & Labrador', 'Nova Scotia / New Brunswick / PEI', 'Nunavit / NW Territories'], {}, {class:'form-control'}%>
       </div>
     </div>
   </div>

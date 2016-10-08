@@ -27,18 +27,20 @@ class SessionsController < ApplicationController
   end
 
   def create_patient
-    patient = Patient.find_by_care_id(params[:care_id])
-    if patient && patient.approved == false
-      render 'new_patient', alert: 'Your account has not been activated by the clinician. Please contact your clinician for more details'
-    elsif patient && patient.authenticate(params[:password]) && patient.approved
+    @patient = Patient.find_by_care_id(params[:care_id])
+    if @patient && @patient.approved == false
+      flash[:alert] = 'Your account has not been approved by an administrator. Please contact your clinician for more details.'
+      render 'new_patient'
+    elsif @patient && @patient.authenticate(params[:password]) && @patient.approved
       if params[:remember_me]
-        cookies.permanent[:patient_auth] = patient.auth_token
+        cookies.permanent[:patient_auth] = @patient.auth_token
       else
-        cookies[:patient_auth] = patient.auth_token
+        cookies[:patient_auth] = @patient.auth_token
       end
       redirect_to root_path, notice: 'Logged in!'
     else
-      redirect_to patient_log_in_path, alert: 'Incorrect Credentials'
+      flash[alert] = 'Incorrect Credentials'
+      redirect_to patient_log_in_path
     end
   end
 

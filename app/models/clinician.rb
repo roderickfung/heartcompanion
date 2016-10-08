@@ -12,11 +12,13 @@ class Clinician < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: VALID_EMAIL_REGEX
   validates :phone, presence: true
   validates :address, presence: true
-  # validates :city, presence: true
-  # validates :province, presence: true
-  # validates :postal_code, presence: true, uniqueness: {scope: :address}
+  validates :city, presence: true
+  validates :province, presence: true
+  validates :postal_code, presence: true, uniqueness: {scope: :address}
   validates :password, length: { minimum: 6 }, on: :create
   validates :password_digest, presence: { message: "Password can't be blank" }
+
+  mount_uploader :profile_image, ProfileImageUploader
 
   before_create { generate_token(:auth_token) }
 
