@@ -3,10 +3,10 @@
 <div class='row'>
 
   <!-- Panel 1 -->
-  <%= render '/clinicians/partials/first', {patients: @patients, datedp: @datedp}%>
+  <%= render '/clinicians/partials/first', {patients: @patients}%>
 
   <!-- Panel 2 -->
-  <%= render '/clinicians/partials/second', {patients: @patients, clinician: @clinician}%>
+  <%= render '/clinicians/partials/second', {patients: @patients, datedp: @datedp}%>
 
   <!-- Panel 3 -->
   <%= render '/clinicians/partials/third', {patients: @patients, atrisk: @atrisk}%>
