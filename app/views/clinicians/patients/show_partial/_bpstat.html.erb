@@ -6,7 +6,7 @@
       </div>
       <div class='panel-body'>
         <%= area_chart [
-          {name: 'Diastolic', data: patient.patient_logs.group_by_week(:date).average(:bp_low)},
+          {name: 'Diastolic', data: patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:bp_low)},
           {name: 'Systolic', data: patient.patient_logs.group_by_week(:date).average(:bp_hi)}
           ], min: 50, max: 180, ytitle: 'mmhg', xtitle: 'Date'%>
       </div>
