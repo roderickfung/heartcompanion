@@ -20,8 +20,8 @@
       <div class='alert-danger'>
         <center><%=flash[:alert]%></center>
       </div>
+      <%= yield %>
     </div>
-    <%= yield %>
     <%= render partial: '/modals/pat_login' %>
     <%= render partial: '/modals/clin_login' %>
     <div class='footer'>
