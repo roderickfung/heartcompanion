@@ -35,8 +35,16 @@
                 <li><%= link_to "Log Out", logout_path, method: :delete%></li>
               <%else%>
                 <li><%=link_to 'Register Clinician', new_clinician_path%></li>
-                <li><%=link_to 'Log In as Clinician / Admin', clinician_log_in_path%></li>
-                <li><%=link_to 'Log In as Patient', patient_log_in_path%></li>
+                <li>
+                  <a type='button' data-toggle='modal' data-target='#ClinLogInModal'>
+                    Sign In as Clinician / Admin
+                  </a>
+                </li>
+                <li>
+                  <a type='button' data-toggle='modal' data-target='#PatLogInModal'>
+                    Sign In as Patient
+                  </a>
+                </li>
               <%end%>
             </ul>
           </li>
@@ -54,5 +62,8 @@
       <div class = 'page-space-lg'></div>
       <%= yield %>
     </div>
+
+    <%= render partial: '/modals/pat_login' %>
+    <%= render partial: '/modals/clin_login' %>
   </body>
 </html>
