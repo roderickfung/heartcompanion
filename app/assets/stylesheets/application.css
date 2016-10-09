@@ -20,8 +20,7 @@
  */
 
 .page-space-lg {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 40px;
 }
 
 .page-space {
@@ -79,6 +78,28 @@
 .navbar-after-top {
   top: 40px !important;
 }
+
+.footer {
+  bottom: 0;
+  height: 8rem;
+  background-color: #525C5B;
+  width: 100%;
+}
+
+#wrapper {
+  margin-bottom: 10rem !important;
+}
+
+.flex-box{
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.flex-box:nth-child(1) {
+  align-self: center;
+}
+
 
 /*
   currently unused styling
