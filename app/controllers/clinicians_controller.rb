@@ -23,6 +23,14 @@ class CliniciansController < ApplicationController
 
   def show
     @patients = @clinician.patients
+
+    @logs = []
+    @patients.each do |patient|
+      patient.patient_logs.each do |log|
+        @logs << log 
+      end
+    end
+
     @datedp = []
     @patients.each do |patient|
       @datedp << patient if patient.patient_logs.last.date < 7.days.ago

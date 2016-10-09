@@ -1,3 +1,30 @@
 <div class='page-space'></div>
 
 <%= render '/clinicians/clinician_profile', clinician: @clinician%>
+
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='panel panel-danger'>
+      <div class='panel-heading'>
+        <h4 style='color: #fff;'>Clinician Office Location</h4>
+      </div>
+      <div class='panel-body'>
+        <div id='clinician_map' style='width: 100%; height: 400px;'></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $(document).on('turbolinks:load', function(){
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'clinician_map'}}, function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json%>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+
+    });
+  });
+</script>
