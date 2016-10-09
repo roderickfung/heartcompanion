@@ -4,7 +4,7 @@
 
 
 body {
-  background-image: url('bg2.jpg');
+  background-image: url('1.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size:cover;
@@ -20,8 +20,18 @@ body {
   // background-blend-mode: darken;
 }
 
+.logo-box {
+  background-color: #555 !important;
+  border-radius: 3px;
+  margin-left: 30rem;
+  margin-right: 30rem;
+  // padding-top: 2rem;
+  padding-bottom: 0.2rem;
+}
+
 .jumbo-title {
-  margin-top: 10rem;
+  margin-top: 40rem;
+  color: #ffffff !important;
 }
 
 .content-block {
