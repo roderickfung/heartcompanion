@@ -15,6 +15,7 @@
  *= require bootstrap_and_overrides
  *= require theme
  *= require sidenav
+ %= require range_slider
  *= require_tree .
  *= require_self
  */
