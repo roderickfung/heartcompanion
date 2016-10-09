@@ -7,7 +7,7 @@
       <div class='panel-body'>
         <%= area_chart [
           {name: 'Diastolic', data: patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:bp_low)},
-          {name: 'Systolic', data: patient.patient_logs.group_by_week(:date).average(:bp_hi)}
+          {name: 'Systolic', data: patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:bp_hi)}
           ], min: 50, max: 180, ytitle: 'mmhg', xtitle: 'Date'%>
       </div>
     </div>
@@ -22,8 +22,8 @@
       </div>
       <div class='panel-body'>
         <%= line_chart [
-          {name: 'Weight', data: patient.patient_logs.group_by_week(:date).average(:weight_num)},
-          {name: 'Heart Rate', data: patient.patient_logs.group_by_week(:date).average(:heartrate)}
+          {name: 'Weight', data: patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:weight_num)},
+          {name: 'Heart Rate', data: patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:heartrate)}
           ], min: 70%>
       </div>
     </div>
@@ -37,7 +37,7 @@
         Exertion Breathlessness Ratings
       </div>
       <div class='panel-body'>
-        <%= line_chart patient.patient_logs.group_by_month(:date).average(:exerting_breath)%>
+        <%= line_chart patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:exerting_breath)%>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@
         Night Time Breathlessness Ratings
       </div>
       <div class='panel-body'>
-        <%= line_chart patient.patient_logs.group_by_month(:date).average(:night_breath)%>
+        <%= line_chart patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:night_breath)%>
       </div>
     </div>
   </div>
@@ -57,7 +57,7 @@
         Ankle Swelling Ratings
       </div>
       <div class='panel-body'>
-        <%= line_chart patient.patient_logs.group_by_month(:date).average(:leg_swollen)%>
+        <%= line_chart patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:leg_swollen)%>
       </div>
     </div>
   </div>
@@ -67,7 +67,7 @@
         Lightheadedness Ratings
       </div>
       <div class='panel-body'>
-        <%= line_chart patient.patient_logs.group_by_month(:date).average(:lightheadedness)%>
+        <%= line_chart patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:lightheadedness)%>
       </div>
     </div>
   </div>
