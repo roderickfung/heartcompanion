@@ -11,48 +11,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class='navbar navbar-default navbar-fixed-top bg-faded'>
-      <div class='container'>
-        <ul class='nav navbar-nav navbar-left'>
-          <li><%=link_to 'Heart Companion', root_path, class: 'navbar-brand'%></li>
-          <!-- <li><%#link_to 'About Us', abouts_path%></li> -->
-          </ul>
-          <ul class='nav navbar-nav navbar-right'>
-            <%if patient_signed_in?%>
-              <li>
-                <%=link_to patient_path(@patient) do %>
-                  <%=image_tag current_patient.profile_image.thumb, height: '15', width: '15', class: 'nav-icon'%>&nbsp;&nbsp;&nbsp;<%= current_patient.full_name %>
-                <%end%>
-              </li>
-            <%else%>
-              <li><%=link_to "Welcome!", '#'%></li>
-            <%end%>
-            <li class='dropdown'>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class='glyphicon glyphicon-user'></span>
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-              <% if patient_signed_in?%>
-                <li>
-                  <%= link_to edit_patient_path(@patient) do %>
-                    <i class='glyphicon glyphicon-cog'></i>&nbsp;&nbsp;<span>Edit Profile</span>
-                  <%end%>
-                </li>
-                <li>
-                  <%= link_to logout_path, method: :delete do%>
-                    <i class='glyphicon glyphicon-off'></i>&nbsp;&nbsp;<span>Log Out</span>
-                  <%end%>
-                </li>
-              <%else%>
-                <li><%=link_to 'Log In as a Patient', patient_log_in_path%></li>
-              <%end%>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- Side Nav -->
+    <%= render partial: '/partials/pat_top_nav'%>
+
+    <!-- Body w/ Side Nave Wrapper -->
     <div id="wrapper">
       <div class="overlay"></div>
       <%= render 'patients/sidebar', patient: @patient %>
@@ -77,5 +38,7 @@
         </div>
       </div>
       <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
   </body>
 </html>
