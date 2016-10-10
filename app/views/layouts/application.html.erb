@@ -14,10 +14,10 @@
     <%= render partial: '/partials/top_nav' %>
     <div class='container'>
       <div class = 'page-space-lg'></div>
-      <div class='alert-success'>
+      <div class='alert-success' style='z-index: 1;'>
         <center><%=flash[:notice]%></center>
       </div>
-      <div class='alert-danger'>
+      <div class='alert-danger' style='z-index: 1;'>
         <center><%=flash[:alert]%></center>
       </div>
     </div>
