@@ -1,0 +1,190 @@
+<%= form_for clinician, html: {class: 'form-horizontal'} do |f| %>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <div class='input-group'>
+          <div class='input-group-addon'>
+            <i class='glyphicon glyphicon-picture'></i>
+          </div>
+          <%= f.file_field :profile_image, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <div class='input-group'>
+          <div class='input-group-addon'>
+            <i class='glyphicon glyphicon-user'></i>
+          </div>
+          <%= f.text_field :username, class: 'form-control', placeholder: 'Username'%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <div class='input-group'>
+          <div class='input-group-addon'>
+            fn
+            <!-- <i class='glyphicon glyphicon-user'></i> -->
+          </div>
+          <%= f.text_field :first_name, class: 'form-control', placeholder: 'First Name'%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <div class='input-group'>
+          <div class='input-group-addon'>
+            ln
+            <!-- <i class='glyphicon glyphicon-user'></i> -->
+          </div>
+          <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name'%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <div class='input-group'>
+          <div class='input-group-addon'>
+            <i class='fa fa-envelope'></i>
+          </div>
+          <%= f.email_field :email, class: 'form-control', placeholder: 'E-mail Address'%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <div class='input-group'>
+          <div class='input-group-addon'>
+            <i class='glyphicon glyphicon-earphone'></i>
+          </div>
+          <%= f.text_field :phone, class: 'form-control', placeholder: '(XXX) XXX - XXXX'%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <div class='input-group'>
+          <div class='input-group-addon'>
+            <i class='fa fa-home'></i>
+          </div>
+          <%= f.text_area :address, class: 'form-control', placeholder: '555 Hastings Street', rows: 3%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <div class='input-group'>
+          <div class='input-group-addon'>
+            <i class='fa fa-home'></i>
+          </div>
+          <%= f.text_field :city, class: 'form-control', placeholder: 'Vancouver'%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <%= f.select :province, ["Alberta", "British Columbia", 'Saskatchewan', 'Manitoba', 'Ontario', 'Quebec', 'NFL & Labrador', 'Nova Scotia / New Brunswick / PEI', 'Nunavit / NW Territories'], {}, {class:'form-control'}%>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <div class='input-group'>
+          <div class='input-group-addon'>
+            <i class='fa fa-home'></i>
+          </div>
+          <%= f.text_field :postal_code, class: 'form-control', placeholder: 'V1A2B3'%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <div class='input-group'>
+          <div class='input-group-addon'>
+            <i class='fa fa-home'></i>
+          </div>
+          <%= f.password_field :password, class: 'form-control', placeholder: 'Password'%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <div class='input-group'>
+          <div class='input-group-addon'>
+            <i class='fa fa-home'></i>
+          </div>
+          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password Confirmation'%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-1 col-sm-10'>
+        <%= f.submit 'Register', class: 'btn btn-primary reg-c-submit', style: 'width: 100%' %>
+      </div>
+    </div>
+  </div>
+
+<%end%>

@@ -4,6 +4,7 @@ class CliniciansController < ApplicationController
 
   def new
     @clinician = Clinician.new
+    redirect_to root_path
   end
 
   def create
@@ -13,7 +14,7 @@ class CliniciansController < ApplicationController
       redirect_to root_path, notice: "Succesfully Signed Up! Please await for an administrator to verify your account."
     else
       flash[:alert] = @clinician.errors.full_messages.to_sentence
-      render :new
+      redirect_to root_path
     end
   end
 
@@ -27,7 +28,7 @@ class CliniciansController < ApplicationController
     @logs = []
     @patients.each do |patient|
       patient.patient_logs.each do |log|
-        @logs << log 
+        @logs << log
       end
     end
 

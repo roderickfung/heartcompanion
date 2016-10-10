@@ -5,7 +5,10 @@
       <div class='panel-heading'>
         <h4 style='color: #fff;'>Basic Profile</h4>
         <% if clinician_signed_in?%>
-          <%=link_to 'Edit Parameters', edit_clinicians_patient_path, class: 'btn btn-default profile-btn'%>
+          <a type='button' data-toggle='modal' data-target='#patParamsModal' class='btn btn-default profile-btn'>
+            Modify Parameters
+          </a>
+          <%#link_to 'Edit Parameters', edit_clinicians_patient_path, class: 'btn btn-default profile-btn'%>
         <%end%>
       </div>
       <div class='panel-body profile-panel'>
@@ -66,3 +69,5 @@
     </div>
   </div>
 </div>
+
+<%=render partial: '/modals/pat_params', patient: patient%>
