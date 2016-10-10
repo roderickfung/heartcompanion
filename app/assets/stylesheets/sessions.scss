@@ -13,3 +13,18 @@
 .modal-heading {
   text-align: center;
 }
+
+@media (min-width: 768px) {
+  .modal-dialog.modal-clinician-login {
+    width: 400px !important;
+    margin: 30px auto;
+  }
+  .modal-dialog.modal-patient-login {
+    width: 400px !important;
+    margin: 30px auto;
+  }
+  .modal-dialog.modal-clinician-reg {
+    width: 500px !important;
+    margin: 30px auto;
+  }
+}

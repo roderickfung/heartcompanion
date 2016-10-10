@@ -62,7 +62,7 @@ body.landing {
 
 .btn-onboard {
   background-color: #eee;
-  border: 1px solid #1a1a1a;
+  border: 1px solid #ec1b5a;
   width: 12rem;
 }
 
@@ -79,4 +79,8 @@ body.landing {
 .cb2 {
   background-color: #fff;
   min-height: 350px;
+}
+
+footer a:link {
+  text-decoration: none !important;
 }

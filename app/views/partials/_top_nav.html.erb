@@ -21,7 +21,11 @@
             <li><%= link_to "#{current_patient.full_name}", '#'%></li>
             <li><%= link_to "Log Out", logout_path, method: :delete%></li>
           <%else%>
-            <li><%=link_to 'Register Clinician', new_clinician_path%></li>
+            <li>
+              <a type='button' data-toggle='modal' data-target='#CRegModal'>
+                Register Clinician
+              </a>
+            </li>
             <li>
               <a type='button' data-toggle='modal' data-target='#ClinLogInModal'>
                 Sign In as Clinician / Admin

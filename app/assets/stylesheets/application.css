@@ -25,8 +25,7 @@
 }
 
 .page-space {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: 20px;
 }
 
 .form-space {
@@ -82,9 +81,11 @@
 
 .footer {
   bottom: 0;
-  height: 8rem;
+  min-height: 15rem;
   background-color: #525C5B;
   width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 #wrapper {
@@ -100,7 +101,6 @@
 .flex-box:nth-child(1) {
   align-self: center;
 }
-
 
 /*
   currently unused styling
