@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-body {
+body.landing {
   background-image: url('1.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -21,22 +21,62 @@ body {
 }
 
 .logo-box {
-  background-color: #555 !important;
+  background-color: rgba(100,100,100,0.3);
   border-radius: 3px;
-  margin-left: 30rem;
-  margin-right: 30rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
+  padding-bottom: 3rem;
   // padding-top: 2rem;
-  padding-bottom: 0.2rem;
+  // padding-bottom: 0.2rem;
 }
 
 .jumbo-title {
-  margin-top: 40rem;
+  margin-top: 25rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 10rem;
+  padding-bottom: 3rem;
   color: #ffffff !important;
 }
 
+.landing-btn {
+  width: 100%;
+}
+
 .content-block {
+  min-height: 300px;
   padding-top: 10rem;
   padding-bottom: 10rem;
-  min-height: 300px;
   background-color: rgba(255,255,255,1);
+}
+
+.content-block-two {
+  background-color: #ec1b5a;
+}
+
+.learn-btn {
+  background-color: #ec1b5a !important;
+  border: 1px solid #fff;
+  width: 12rem;
+}
+
+.btn-onboard {
+  background-color: #eee;
+  border: 1px solid #1a1a1a;
+  width: 12rem;
+}
+
+.cb1 {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  color: #ddd;
+  background-color: #ec1b5a;
+  min-height: 350px;
+}
+
+.cb2 {
+  background-color: #fff;
+  min-height: 350px;
 }

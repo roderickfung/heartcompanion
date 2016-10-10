@@ -2,11 +2,22 @@
   <div class='container'>
     <div class='row'>
       <div class='container'>
-        <center>
           <div class='logo-box'>
-            <h1 class="jumbo-title">Heart Companion</h1>
+            <h1 class="jumbo-title">We help you help your patients take control of their condition.</h1>
+            <div class='row landing-btn'>
+              <div class='col-sm-offset-3 col-sm-3'>
+                <center>
+                  <a href='#' class='btn learn-btn span12'><h4 style='color: #fff;s'>Learn More</h4></a>
+                </center>
+                <%#link_to about_path, 'Learn More', class: 'btn btn-info'%>
+              </div>
+              <div class='col-sm-3'>
+                <center>
+                  <a href='#' class='btn btn-onboard span12'><h4 style='color: #ec1b5a'>Register</h4></a>
+                </center>
+              </div>
+            </div>
           </div>
-        </center>
       </div>
     </div>
   </div>
@@ -14,44 +25,12 @@
 
 <div class='content-block'>
   <div class='container'>
+    <%= render partial: '/partials/content_block_one'%>
+  </div>
+</div>
 
-    <div class='row'>
-      <div class='col-sm-4'>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
-            <h3 style='color: #fff;'>ASDFASDF</h3>
-          </div>
-          <div class='panel-body'>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class='col-sm-4'>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
-            <h3 style='color: #fff;'>ASDFASDF</h3>
-          </div>
-          <div class='panel-body'>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class='col-sm-4'>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
-            <h3 style='color: #fff;'>ASDFASDF</h3>
-          </div>
-          <div class='panel-body'>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class='content-block-two'>
+  <div class='container'>
+    <%= render partial: '/partials/content_block_two' %>
   </div>
 </div>
