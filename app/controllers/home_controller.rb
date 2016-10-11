@@ -21,9 +21,8 @@ class HomeController < ApplicationController
       @patient = Patient.find_by_auth_token cookies[:patient_auth]
       render layout: 'patient-dash'
     else
-
+      @clinician = Clinician.new
     end
   end
 
 end
-  
