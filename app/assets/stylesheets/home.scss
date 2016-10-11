@@ -3,6 +3,56 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+@media (min-width: 768px) {
+  #abt-jumbo-wrapper {
+      background-image: url('abtmock.jpg');
+      background-attachment: fixed;
+      background-repeat: none;
+      background-size: cover;
+      // z-index: -5;
+      min-height: 80%;
+  }
+
+  #abt-content-wrapper {
+    background-color: #fff;
+    background-size: cover;
+    min-height: 400px;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  #abt-content-wrapper-two {
+    background-color: #1a1a1a;
+    background-size: cover;
+    min-height: 400px;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .jumbotron.abt-jumbo {
+    min-height: 850px;
+  }
+
+  .logo-box-abt {
+    // position: fixed;
+    margin-top: 15rem;
+    margin-left: 70rem;
+    background-color: rgba(50, 50, 50, 0.3);
+    border-radius: 5px;
+    // z-index: ;
+  }
+
+  .logo-box-abt h1,h2,h3 {
+    max-width: 450px;
+    overflow: auto;
+    padding: 1rem 1rem 1rem 1rem;
+    text-align: right;
+    line-height: 5rem;
+    // z-index: -3;
+  }
+
+}
+
 body.landing {
   background-image: url('1.jpg');
   background-attachment: fixed;
