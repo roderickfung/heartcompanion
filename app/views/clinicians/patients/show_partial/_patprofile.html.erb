@@ -1,0 +1,73 @@
+<div class='row'>
+  <div class='col-sm-9'>
+
+    <div class='panel panel-info'>
+      <div class='panel-heading'>
+        <h4 style='color: #fff;'>Basic Profile</h4>
+        <% if clinician_signed_in?%>
+          <a type='button' data-toggle='modal' data-target='#patParamsModal' class='btn btn-default profile-btn'>
+            Modify Parameters
+          </a>
+          <%#link_to 'Edit Parameters', edit_clinicians_patient_path, class: 'btn btn-default profile-btn'%>
+        <%end%>
+      </div>
+      <div class='panel-body profile-panel'>
+        <div class='row'>
+          <div class='col-sm-4'>
+            <p>First Name: &nbsp;&nbsp;<b><%= patient.first_name%></b></p>
+            <p>Last Name: &nbsp;&nbsp;<b><%= patient.last_name%></b></p>
+            <p>Age: &nbsp;&nbsp;<b><%= patient.age%></b></p>
+            <p>Sex: &nbsp;&nbsp;<b><%= patient.sex%></b></p>
+          </div>
+          <div class='col-sm-4'>
+            <p>Care Card Number: &nbsp;&nbsp;<b><%=patient.care_id%></b></p>
+            <p>Address: &nbsp;&nbsp;<b><%= patient.address%></b></p>
+            <p><b><%= patient.city%>, <%=patient.province%></b></p>
+            <p>Postal Code: &nbsp;&nbsp;<b><%= patient.postal_code%></b></p>
+          </div>
+          <div class='col-sm-4'>
+            <p>Contact Info:</p>
+            <p>E-mail: &nbsp;&nbsp;<b><%= patient.email%></b></p>
+            <p>Phone Number: &nbsp;&nbsp;<b><%= patient.phone%></b></p>
+          </div>
+        </div>
+        <div class='page-space'></div>
+        <div class='row'>
+          <div class='col-sm-12'>
+            <p><b>Current Triggers</b></p>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-sm-4'>
+            <p>Diastolic Blood Pressure: &nbsp;&nbsp;<b><%= patient.bplow%></b></p>
+            <p>Systolic Blood Pressure: &nbsp;&nbsp;<b><%= patient.bphigh%></b></p>
+
+          </div>
+          <div class='col-sm-4'>
+            <p>Minimum Heart Rate: &nbsp;&nbsp;<b><%= patient.hrlow%></b></p>
+            <p>Maximum Heart Rate: &nbsp;&nbsp;<b><%= patient.hrhigh%></b></p>
+
+          </div>
+          <div class='col-sm-4'>
+            <p>Minimum Weight: &nbsp;&nbsp;<b><%= patient.lblow%></b></p>
+            <p>Maximum Weight: &nbsp;&nbsp;<b><%= patient.lbhigh%></b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-3'>
+    <div class='panel panel-info'>
+      <div class='panel-heading'>
+        <h4 style='color: #fff;'>Profile Picture</h4>
+      </div>
+      <div class='panel-body'>
+        <center>
+          <%=image_tag patient.profile_image.profile %>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%=render partial: '/modals/pat_params', patient: patient%>

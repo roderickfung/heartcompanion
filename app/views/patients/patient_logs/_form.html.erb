@@ -1,0 +1,233 @@
+<%= form_for [:patients, plog], html: {class: 'form-horizontal'} do |f| %>
+
+  <div class='row'>
+    <div class='form-group'>
+      <div class='col-sm-offset-3 col-sm-5'>
+        <h3> Vitals Information </h3>
+        <p>
+          Please enter the details below.  Note that daily logging is required in order to gather the most accurate data for a precise diagnoses. <b>Moreover, it is preferred that your vitals are gathered within an hour upon waking up, prior to any food or water intake.</b>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-2 col-sm-1'>
+        <%= f.label :date, class: 'control-label'%>
+      </div>
+      <div class='col-sm-4'>
+        <%= f.date_field :date, class: 'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='form-group'>
+      <div class='col-sm-offset-2 col-sm-1'>
+        <%= f.label :weight_num, 'Weight', class: 'control-label col-form-label'%>
+      </div>
+      <div class='col-sm-4'>
+        <div class='input-group'>
+          <%= f.number_field :weight_num, class: 'form-control'%>
+          <div class='input-group-addon'>lbs</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='form-group'>
+      <div class='col-sm-offset-2 col-sm-1'>
+        <%= f.label :heartrate, class: 'control-label col-form-label'%>
+      </div>
+      <div class='col-sm-4'>
+        <div class='input-group'>
+          <%= f.number_field :heartrate, class:'form-control'%>
+          <div class='input-group-addon'>bpm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='form-group'>
+
+      <!-- BPLOW -->
+      <div class='col-sm-offset-2 col-sm-1'>
+        <%= f.label :bp_low, 'Diastolic BP', class: 'control-label col-form-label'%>
+      </div>
+      <div class='col-sm-2'>
+        <div id="bp-min" style='margin-top: 1.2rem;'></div>
+      </div>
+      <div class='col-sm-1'>
+        <input type='text' name='patient_log[bp_low]' id='bp_low' readonly style='border: 0; margin-top: 0.7rem;' />
+      </div>
+
+      <!-- BPHIGH -->
+      <div class='col-sm-1'>
+        <%= f.label :bp_hi, 'Systolic BP', class:'control-label col-form-label'%>
+      </div>
+      <div class='col-sm-2'>
+        <div id="bp-max" style='margin-top: 1.2rem;'></div>
+      </div>
+      <div class='col-sm-1'>
+        <input type='text' id='bp_hi' name='patient_log[bp_hi]' readonly style='border: 0; margin-top: 0.7rem;' />
+      </div>
+    </div>
+  </div>
+
+  <div class='form-space'></div>
+
+  <div class='row'>
+    <div class='form-group'>
+      <div class='col-sm-offset-3 col-sm-5'>
+        <h3> Questionnaire </h3>
+        <p>
+          The answers below will allow you to select a range between -10 to +10. <p> Lower numbers indicate that you are DO NOT feel that way</b>, the opposite is true for positive numbers.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exertion Breathlessness -->
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-3 col-sm-5'>
+        <p>
+          1. Do you get breathless immediately upon exertion?
+        </p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-offset-2 col-sm-1'>
+        <p class='control-label'>Not at all</p>
+      </div>
+      <div class='col-sm-4'>
+        <div id="exbreath">
+          <div id="handle1" class="ui-slider-handle"></div>
+        </div>
+      </div>
+      <div class='col-sm-1'>
+        <p class='control-label'>All the time</p>
+      </div>
+      <div class='row'>
+        <div class='col-sm-offset-4 col-sm-1'>
+          <input type='text' name='patient_log[exerting_breath]' readonly id='exbreath-input' style='border: 0;' hidden=true />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Night Breathlessness -->
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-3 col-sm-5'>
+        <p>
+          2. Do you get breathless at night?
+        </p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-offset-2 col-sm-1'>
+        <p class='control-label'>Not at all</p>
+      </div>
+      <div class='col-sm-4'>
+        <div id="nightbreath">
+          <div id="handle2" class="ui-slider-handle"></div>
+        </div>
+      </div>
+      <div class='col-sm-1'>
+        <p class='control-label'>All the time</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-offset-4 col-sm-1'>
+        <input type='text' name='patient_log[night_breath]' readonly id='nightbreath-input' style='border: 0;' hidden=true />
+      </div>
+    </div>
+  </div>
+
+  <!-- Swollen Ankles -->
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-3 col-sm-5'>
+        <p>
+          3. Are your ankles swollen?
+        </p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-offset-2 col-sm-1'>
+        <p class='control-label'>Not at all</p>
+      </div>
+      <div class='col-sm-4'>
+        <div id="swollen">
+          <div id="handle3" class="ui-slider-handle"></div>
+        </div>
+      </div>
+      <div class='col-sm-1'>
+        <p class='control-label'>Extremely</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-offset-4 col-sm-1'>
+        <input type='text' name='patient_log[leg_swollen]' readonly id='swollen-input' style='border: 0;' hidden=true />
+      </div>
+    </div>
+  </div>
+
+  <!-- Do you get lightheaded at anytime during the day? -->
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-3 col-sm-5'>
+        <p>
+          4. Do you get lightheaded at anytime during the day?
+        </p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-offset-2 col-sm-1'>
+        <p class='control-label'>Not at all</p>
+      </div>
+      <div class='col-sm-4'>
+        <div id="lightheaded">
+          <div id="handle4" class="ui-slider-handle"></div>
+        </div>
+      </div>
+      <div class='col-sm-1'>
+        <p class='control-label'>All the time</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-offset-4 col-sm-1'>
+        <input type='text' name='patient_log[lightheadedness]' readonly id='lightheaded-input' style='border: 0;' hidden=true />
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='row'>
+    <div class='col-sm-offset-3 col-sm-6'>
+      <p>
+        By submitting your log, you are allowing your designated clinician to view the information and adjust your medication according to your data. If you have any concerns, please contact us.
+      </p>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='row'>
+    <div class='form-group'>
+      <div class='col-sm-offset-3 col-sm-2'>
+        <%= f.submit 'Submit', class: 'btn btn-primary btn-sm'%>
+      </div>
+    </div>
+  </div>
+
+<%end%>

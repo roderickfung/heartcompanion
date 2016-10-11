@@ -1,0 +1,88 @@
+<nav class='navbar navbar navbar-fixed-top bg-faded'>
+  <div class='container'>
+    <ul class='nav navbar-nav navbar-left'>
+      <li><%=link_to 'Heart Companion', root_path, class: 'navbar-brand'%></li>
+      <!-- <li><%#link_to 'About Us', abouts_path%></li> -->
+      </ul>
+      <ul class='nav navbar-nav navbar-right'>
+        <%if clinician_signed_in?%>
+          <li><%=link_to "#{current_clinician.full_name}", '#'%></li>
+        <%else%>
+          <li><%=link_to "Welcome!", '#'%></li>
+        <%end%>
+        <li class='dropdown'>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class='glyphicon glyphicon-user'></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+          <% if clinician_signed_in?%>
+            <li>
+              <%= link_to edit_clinician_path(@clinician) do %>
+                <i class='glyphicon glyphicon-cog'></i>&nbsp;&nbsp;<span>Edit Profile</span>
+              <%end%>
+            </li>
+            <li>
+              <%= link_to logout_path, method: :delete do%>
+                <i class='glyphicon glyphicon-off'></i>&nbsp;&nbsp;<span>Log Out</span>
+              <%end%>
+            </li>
+          <%else%>
+            <li><%=link_to 'Register Clinician', new_clinician_path%></li>
+            <li><%=link_to 'Log In as Clinician / Admin', clinician_log_in_path%></li>
+          <%end%>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class='container-fluid'>
+  <div class='row-fluid'>
+    <div class='span2'>
+      <%= render 'clinicians/clinician-nav', clinician: @clinician %>
+    </div>
+    <div class='span10'>
+      <div class='page-space-lg'></div>
+      <div class='alert-success'>
+        <center><%=flash[:notice]%></center>
+      </div>
+      <div class='alert-danger'>
+        <center><%=flash[:alert]%></center>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class='container-fluid'>
+  <div class='row-fluid'>
+    <div class='span3'>
+      <%= render 'clinicians/clinician-nav', clinician: @clinician %>
+    </div>
+    <div class='span9'>
+      <div class='container'>
+        <div class='alert-success'>
+          <center><%=flash[:notice]%></center>
+        </div>
+        <div class='alert-danger'>
+          <center><%=flash[:alert]%></center>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class='container'>
+  <div class='page-space-lg'></div>
+  <div class='alert-success'>
+    <center><%#flash[:notice]%></center>
+  </div>
+  <div class='alert-danger'>
+    <center><%#flash[:alert]%></center>
+  </div>
+  <div class='page-space'></div>
+  <%# render 'clinicians/clinician-nav', clinician: @clinician %>
+</div> -->

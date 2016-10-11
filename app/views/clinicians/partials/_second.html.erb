@@ -1,0 +1,25 @@
+<div class='col-sm-4'>
+  <div class='panel panel-info'>
+    <div class='panel-heading'>
+      <h6 style='color: #fff;'>Patients with logs overdue > 7 days</h6>
+    </div>
+    <div class='dashboard-table dashboard-panel'>
+      <table class='table table-striped'>
+        <tr>
+          <th>Patient Name</th>
+          <th>Last Log Date</th>
+        </tr>
+        <% @datedp.each do |patient|%>
+          <tr>
+            <td>
+              <%=link_to clinicians_patient_path(patient) do%>
+                <b><%=patient.full_name%></b>
+              <%end%>
+            </td>
+            <td><%=patient.patient_logs.last.date.strftime("%d / %m / %Y")%></td>
+          </tr>
+        <%end%>
+      </table>
+    </div>
+  </div>
+</div>

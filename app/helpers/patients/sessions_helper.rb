@@ -1,2 +1,0 @@
-module Patients::SessionsHelper
-end

@@ -1,3 +1,136 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@media (min-width: 768px) {
+  #abt-jumbo-wrapper {
+      background-image: url('abtmock.jpg');
+      background-attachment: fixed;
+      background-repeat: none;
+      background-size: cover;
+      // z-index: -5;
+      min-height: 80%;
+  }
+
+  #abt-content-wrapper {
+    background-color: #fff;
+    background-size: cover;
+    min-height: 300px;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  #abt-content-wrapper-two {
+    background-color: #1a1a1a;
+    background-size: cover;
+    min-height: 300px;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .jumbotron.abt-jumbo {
+    min-height: 850px;
+  }
+
+  .logo-box-abt {
+    // position: fixed;
+    margin-top: 15rem;
+    margin-left: 70rem;
+    background-color: rgba(50, 50, 50, 0.3);
+    border-radius: 5px;
+    // z-index: ;
+  }
+
+  .logo-box-abt h1,h2,h3 {
+    max-width: 450px;
+    overflow: auto;
+    padding: 1rem 1rem 1rem 1rem;
+    text-align: right;
+    line-height: 5rem;
+    // z-index: -3;
+  }
+
+}
+
+body.landing {
+  background-image: url('1.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size:cover;
+  z-index: -10;
+}
+
+.jumbotron {
+  background-color: rgba(255,255,255,0.3);
+  height: 100%;
+  margin-bottom: 0 !important;
+  // vertical-align: middle;
+  // margin-bottom: 15rem;
+  // background-blend-mode: darken;
+}
+
+.logo-box {
+  background-color: rgba(100,100,100,0.3);
+  border-radius: 3px;
+  margin-left: 20rem;
+  margin-right: 20rem;
+  padding-bottom: 3rem;
+  // padding-top: 2rem;
+  // padding-bottom: 0.2rem;
+}
+
+.jumbo-title {
+  margin-top: 25rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 10rem;
+  padding-bottom: 3rem;
+  color: #ffffff !important;
+}
+
+.landing-btn {
+  width: 100%;
+}
+
+.content-block {
+  min-height: 300px;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  background-color: rgba(255,255,255,1);
+}
+
+.content-block-two {
+  background-color: #ec1b5a;
+}
+
+.learn-btn {
+  background-color: #ec1b5a !important;
+  border: 1px solid #fff;
+  width: 12rem;
+}
+
+.btn-onboard {
+  background-color: #eee;
+  border: 1px solid #ec1b5a;
+  width: 12rem;
+}
+
+.cb1 {
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  color: #ddd;
+  background-color: #ec1b5a;
+  min-height: 300px;
+}
+
+.cb2 {
+  background-color: #fff;
+  min-height: 350px;
+}
+
+footer a:link {
+  text-decoration: none !important;
+}

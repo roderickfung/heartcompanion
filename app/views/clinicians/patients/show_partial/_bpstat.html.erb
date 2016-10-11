@@ -1,0 +1,74 @@
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='panel panel-warning'>
+      <div class='panel-heading'>
+        Blood Pressure Analytics
+      </div>
+      <div class='panel-body'>
+        <%= area_chart [
+          {name: 'Diastolic', data: patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:bp_low)},
+          {name: 'Systolic', data: patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:bp_hi)}
+          ], min: 50, max: 180, ytitle: 'mmhg', xtitle: 'Date'%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='panel panel-info'>
+      <div class='panel-heading'>
+        Weight vs Heart Rate  Analytics
+      </div>
+      <div class='panel-body'>
+        <%= line_chart [
+          {name: 'Weight', data: patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:weight_num)},
+          {name: 'Heart Rate', data: patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:heartrate)}
+          ], min: 70%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-sm-3'>
+    <div class='panel panel-success'>
+      <div class='panel-heading'>
+        Exertion Breathlessness Ratings
+      </div>
+      <div class='panel-body'>
+        <%= line_chart patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:exerting_breath)%>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-3'>
+    <div class='panel panel-danger'>
+      <div class='panel-heading'>
+        Night Time Breathlessness Ratings
+      </div>
+      <div class='panel-body'>
+        <%= line_chart patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:night_breath)%>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-3'>
+    <div class='panel panel-warning'>
+      <div class='panel-heading'>
+        Ankle Swelling Ratings
+      </div>
+      <div class='panel-body'>
+        <%= line_chart patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:leg_swollen)%>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-3'>
+    <div class='panel panel-info'>
+      <div class='panel-heading'>
+        Lightheadedness Ratings
+      </div>
+      <div class='panel-body'>
+        <%= line_chart patient.patient_logs.where('date < ?', 30.days.ago).group_by_week(:date).average(:lightheadedness)%>
+      </div>
+    </div>
+  </div>
+</div>

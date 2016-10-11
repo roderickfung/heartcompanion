@@ -1,4 +1,16 @@
 <%= form_for clinician, html: {class: 'form-horizontal'} do |f| %>
+
+  <div class='row'>
+    <div class='form-group'>
+      <div class='col-sm-offset-2 col-sm-2'>
+        <%= f.label :profile_image, class: 'control-label'%>
+      </div>
+      <div class='col-sm-4'>
+        <%= f.file_field :profile_image, class: 'form-control'%>
+      </div>
+    </div>
+  </div>
+
   <div class='row'>
     <div class='form-group'>
       <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
@@ -9,8 +21,6 @@
       </div>
     </div>
   </div>
-
-  <div class='form-spacing'></div>
 
   <div class='form-group'>
     <div class='row'>
@@ -23,7 +33,7 @@
     </div>
   </div>
 
-  <div class='form-spacing'></div>
+  <div class='form-space'></div>
 
   <div class='form-group'>
     <div class='row'>
@@ -36,7 +46,7 @@
     </div>
   </div>
 
-  <div class='form-spacing'></div>
+  <div class='form-space'></div>
 
   <div class='form-group'>
     <div class='row'>
@@ -49,7 +59,7 @@
     </div>
   </div>
 
-  <div class='form-spacing'></div>
+  <div class='form-space'></div>
 
   <div class='form-group'>
     <div class='row'>
@@ -62,7 +72,7 @@
     </div>
   </div>
 
-  <div class='form-spacing'></div>
+  <div class='form-space'></div>
 
   <div class='form-group'>
     <div class='row'>
@@ -75,7 +85,40 @@
     </div>
   </div>
 
-  <div class='page-spacing-lg'></div>
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
+        <%= f.label :city, class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.text_field :city, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
+        <%= f.label :province, class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.select :province, ["Alberta", "British Columbia", 'Saskatchewan', 'Manitoba', 'Ontario', 'Quebec', 'NFL & Labrador', 'Nova Scotia / New Brunswick / PEI', 'Nunavit / NW Territories'], {}, {class:'form-control'}%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
+        <%= f.label :postal_code, 'Postal Code', class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.text_field :postal_code, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='page-space-lg'></div>
 
   <div class='form-group'>
     <div class='row'>
@@ -88,7 +131,7 @@
     </div>
   </div>
 
-  <div class='form-spacing'></div>
+  <div class='form-space'></div>
 
   <div class='form-group'>
     <div class='row'>
@@ -101,12 +144,12 @@
     </div>
   </div>
 
-  <div class='form-spacing'></div>
+  <div class='form-space'></div>
 
   <div class='form-group'>
     <div class='row'>
       <div class='col-xs-offset-4 col-sm-offset-4 col-xs-3 col-sm-3'>
-        <%= f.submit 'Register', class:'btn btn-primary' %>
+        <%= f.submit 'Save', class:'btn btn-primary' %>
       </div>
     </div>
   </div>

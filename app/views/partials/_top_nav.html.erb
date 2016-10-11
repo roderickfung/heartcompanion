@@ -1,0 +1,44 @@
+<nav class='navbar navbar-default navbar-fixed-top bg-faded'>
+  <div class='container'>
+    <ul class='nav navbar-nav navbar-left'>
+      <li><%=link_to 'Heart Companion', root_path, class: 'navbar-brand'%></li>
+      <li><%=link_to 'About Us', about_path%></li>
+    </ul>
+    <ul class='nav navbar-nav navbar-right'>
+      <%if clinician_signed_in?%>
+        <li><%=link_to "#{current_clinician.full_name}", clinician_path(@clinician)%></li> <%elsif patient_signed_in?%>
+        <li><%=link_to "#{current_patient.full_name}", patient_path(@patient)%></li>
+      <%else%>
+        <li><%=link_to "Welcome!", '#'%></li>
+      <%end%>
+      <li class='dropdown'>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class='glyphicon glyphicon-user'></span><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <% if clinician_signed_in?%>
+            <li><%= link_to "#{current_clinician.full_name}", '#'%></li>
+            <li><%= link_to "Log Out", logout_path, method: :delete%></li>
+          <%elsif patient_signed_in?%>
+            <li><%= link_to "#{current_patient.full_name}", '#'%></li>
+            <li><%= link_to "Log Out", logout_path, method: :delete%></li>
+          <%else%>
+            <li>
+              <a type='button' data-toggle='modal' data-target='#CRegModal'>
+                Register Clinician
+              </a>
+            </li>
+            <li>
+              <a type='button' data-toggle='modal' data-target='#ClinLogInModal'>
+                Sign In as Clinician / Admin
+              </a>
+            </li>
+            <li>
+              <a type='button' data-toggle='modal' data-target='#PatLogInModal'>
+                Sign In as Patient
+              </a>
+            </li>
+          <%end%>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
