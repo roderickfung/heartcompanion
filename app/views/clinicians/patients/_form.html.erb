@@ -1,0 +1,170 @@
+<%= form_for [:clinicians, patient], html: {class: 'form-horizontal'} do |f| %>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-sm-offset-2 col-sm-2'>
+        <%= f.label :profile_image, class:'control-label'%>
+      </div>
+      <div class='col-sm-4'>
+        <%= f.file_field :profile_image, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-offset-2 col-xs-2 col-sm-2'>
+        <%= f.label :care_id, 'Care Card Number', class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.number_field :care_id, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-offset-2 col-xs-2 col-sm-2'>
+        <%=f.label :first_name, class: 'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.text_field :first_name, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-offset-2 col-xs-2 col-sm-2'>
+        <%=f.label :last_name, class: 'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.text_field :last_name, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-offset-2 col-xs-2 col-sm-2'>
+        <%=f.label :sex, class: 'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.select :sex, ["Male", "Female"], {}, {class:'form-control'}%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-offset-2 col-xs-2 col-sm-2'>
+        <%= f.label :age, class: 'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.number_field :age, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-offset-2 col-xs-2 col-sm-2'>
+        <%=f.label :email, class: 'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.email_field :email, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-offset-2 col-xs-2 col-sm-2'>
+        <%=f.label :phone, class: 'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.telephone_field :phone, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
+        <%= f.label :address, class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.text_area :address, class:'form-control' , rows: '5'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
+        <%= f.label :city, class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.text_field :city, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
+        <%= f.label :province, class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.select :sex, ["Alberta", "British Columbia", 'Saskatchewan', 'Manitoba', 'Ontario', 'Quebec', 'NFL & Labrador', 'Nova Scotia / New Brunswick / PEI', 'Nunavit / NW Territories'], {}, {class:'form-control'}%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
+        <%= f.label :postal_code, 'Postal Code', class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.text_field :postal_code, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+
+  <div class='page-space-lg'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
+        <%= f.label :password, class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.password_field :password, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-space'></div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-ofset-2 col-xs-2 col-sm-2'>
+        <%= f.label :password_confirmation, 'Password Confirmation', class:'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= f.password_field :password_confirmation, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-4 col-sm-offset-4 col-xs-3 col-sm-3'>
+        <%= f.submit 'Save', class:'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+
+<%end%>

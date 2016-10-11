@@ -1,0 +1,30 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pat-modal-body {
+
+}
+
+.modal-heading-txt {
+  color: #fff;
+}
+
+.modal-heading {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .modal-dialog.modal-clinician-login {
+    width: 400px !important;
+    margin: 30px auto;
+  }
+  .modal-dialog.modal-patient-login {
+    width: 400px !important;
+    margin: 30px auto;
+  }
+  .modal-dialog.modal-clinician-reg {
+    width: 500px !important;
+    margin: 30px auto;
+  }
+}

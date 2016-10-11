@@ -1,0 +1,13 @@
+<div class='col-sm-4'>
+  <div class='panel panel-danger'>
+    <div class='panel-heading'>
+      <h6 style='color: #fff;'>Patients without logs for the past 7 days:</h6>
+    </div>
+    <div class='panel-body dashboard-panel'>
+      <% patients.each do |patient| %>
+
+      <%end%>
+      <%= pie_chart Patient.where("lbhigh > ? AND clinician_id = ?", 200, @clinician.id )%>
+    </div>
+  </div>
+</div>

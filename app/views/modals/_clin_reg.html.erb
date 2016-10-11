@@ -1,0 +1,15 @@
+<div class="modal fade" id="CRegModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-clinician-reg" role="document">
+    <div class="modal-content panel-primary">
+      <div class="modal-header panel-heading">
+        <button type="button" class="close modal-heading-txt" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title modal-heading-txt modal-heading" id="myModalLabel">Register as a Clinician</h4>
+      </div>
+
+      <div class="modal-body panel-body">
+        <%= render 'modals/clin_reg_form', clinician: @clinician%>
+      </div>
+
+    </div>
+  </div>
+</div>

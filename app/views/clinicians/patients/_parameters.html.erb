@@ -1,0 +1,126 @@
+<%= form_for [:clinicians, patient], html: {class: 'form-horizontal'} do |f| %>
+
+  <div class='row'>
+    <div class='col-sm-offset-1'>
+      <h3>Heart Rate Parameters</h3>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='row'>
+    <div class='form-group'>
+
+      <!-- BP Low -->
+      <div class='col-sm-offset-1 col-sm-1'>
+        <%= f.label :bplow, 'Diastolic BP', class: 'control-label'%>
+      </div>
+      <div class='col-sm-2'>
+        <div id='bplow-slider' class:'form-control' style='margin-top: 1.2rem;'></div>
+      </div>
+      <div class='col-sm-1'>
+        <input type='text' name='patient[bplow]' id='bplow' readonly style='border: 0; margin-top: 0.7rem;' />
+      </div>
+
+
+      <!-- BP High -->
+      <div class='col-sm-1'>
+        <%= f.label :bphigh, 'Systolic BP', class: 'control-label'%>
+      </div>
+      <div class='col-sm-2'>
+        <div id='bphigh-slider' class:'form-control' style='margin-top: 1.2rem;'></div>
+      </div>
+      <div class='col-sm-1'>
+        <input type='text' name='patient[bphigh]' id='bphigh' readonly style='border: 0; margin-top: 0.7rem;' />
+      </div>
+
+    </div>
+  </div>
+
+  <div class='page-space-lg'></div>
+
+  <div class='row'>
+    <div class='col-sm-offset-1'>
+      <h3>Blood Pressure Parameters</h3>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='row'>
+    <div class='form-group'>
+
+      <!-- Heart Rate Low -->
+      <div class='col-sm-offset-1 col-sm-1'>
+        <%= f.label :hrlow, 'Min BPM', class: 'control-label'%>
+      </div>
+      <div class='col-sm-2'>
+        <div id='hrlow-slider' class:'form-control' style='margin-top: 1.2rem;'></div>
+      </div>
+      <div class='col-sm-1'>
+        <input type='text' name='patient[hrlow]' id='hrlow' readonly style='border: 0; margin-top: 0.7rem;' />
+      </div>
+
+
+      <!-- Heart Rate High -->
+      <div class='col-sm-1'>
+        <%= f.label :hrhigh, 'Min BPM', class: 'control-label'%>
+      </div>
+      <div class='col-sm-2'>
+        <div id='hrhigh-slider' class:'form-control' style='margin-top: 1.2rem;'></div>
+      </div>
+      <div class='col-sm-1'>
+        <input type='text' name='patient[hrhigh]' id='hrhigh' readonly style='border: 0; margin-top: 0.7rem;' />
+      </div>
+
+    </div>
+  </div>
+
+  <div class='page-space-lg'></div>
+
+  <div class='row'>
+    <div class='col-sm-offset-1'>
+      <h3>Weight Parameters</h3>
+    </div>
+  </div>
+
+  <div class='page-space'></div>
+
+  <div class='row'>
+    <div class='form-group'>
+
+      <!-- Weight Low -->
+      <div class='col-sm-offset-1 col-sm-1'>
+        <%= f.label :lblow, 'Min Weight', class: 'control-label'%>
+      </div>
+      <div class='col-sm-2'>
+        <div id='lblow-slider' class:'form-control' style='margin-top: 1.2rem;'></div>
+      </div>
+      <div class='col-sm-1'>
+        <input type='text' name='patient[lblow]' id='lblow' readonly style='border: 0; margin-top: 0.7rem;' />
+      </div>
+
+
+      <!-- Weight High -->
+      <div class='col-sm-1'>
+        <%= f.label :lbhigh, 'Max Weight', class: 'control-label'%>
+      </div>
+      <div class='col-sm-2'>
+        <div id='lbhigh-slider' class:'form-control' style='margin-top: 1.2rem;'></div>
+      </div>
+      <div class='col-sm-1'>
+        <input type='text' name='patient[lbhigh]' id='lbhigh' readonly style='border: 0; margin-top: 0.7rem;' />
+      </div>
+
+    </div>
+  </div>
+
+  <div class= 'page-space-lg'></div>
+
+  <div class='row'>
+    <div class='col-sm-offset-1'>
+      <%= f.submit 'Set Parameters', class: 'btn btn-primary span6'%>
+    </div>
+  </div>
+
+<%end%>

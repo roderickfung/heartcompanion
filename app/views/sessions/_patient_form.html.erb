@@ -1,0 +1,40 @@
+<%= form_tag '/patient_logs_in' do %>
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-offset-2 col-xs-2 col-sm-2'>
+        <%= label_tag :care_id, 'Care Card #', class: 'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= text_field_tag :care_id, nil, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-2 col-sm-offset-2 col-xs-2 col-sm-2'>
+        <%= label_tag :password, nil, class: 'control-label span12 text-right'%>
+      </div>
+      <div class='col-xs-4 col-sm-4'>
+        <%= password_field_tag :password, nil, class: 'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-4 col-sm-offset-4 col-xs-3 col-sm-3'>
+        <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+        &nbsp;&nbsp;<%= label_tag :remember_me %>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='row'>
+      <div class='col-xs-offset-4 col-sm-offset-4 col-xs-2 col-sm-2'>
+        <%= submit_tag 'Log In', class:'btn btn-primary'%>
+      </div>
+    </div>
+  </div>
+<%end%>

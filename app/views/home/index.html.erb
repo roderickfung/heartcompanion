@@ -1,9 +1,36 @@
 <div class="jumbotron">
-  <h1 class="display-3">Track the heart's condition.</h1>
-  <p class="lead">Improve your patients quality of life by using our early-warning and heart-health tracking system.</p>
-  <hr class="m-y-2">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
+  <div class='container'>
+    <div class='row'>
+      <div class='container'>
+          <div class='logo-box'>
+            <h1 class="jumbo-title">We help you help your patients take control of their condition.</h1>
+            <div class='row landing-btn'>
+              <div class='col-sm-offset-3 col-sm-3'>
+                <center>
+                  <a href='#' class='btn learn-btn span12'><h4 style='color: #fff;s'>Learn More</h4></a>
+                </center>
+                <%#link_to about_path, 'Learn More', class: 'btn btn-info'%>
+              </div>
+              <div class='col-sm-3'>
+                <center>
+                  <a href='#' class='btn btn-onboard span12'><h4 style='color: #ec1b5a'>Register</h4></a>
+                </center>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='content-block'>
+  <div class='container'>
+    <%= render partial: '/partials/content_block_one'%>
+  </div>
+</div>
+
+<div class='content-block-two'>
+  <div class='container'>
+    <%= render partial: '/partials/content_block_two' %>
+  </div>
 </div>
