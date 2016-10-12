@@ -9,7 +9,7 @@
 
 @media (min-width: 768px) {
   #abt-jumbo-wrapper {
-      background-image: url('abtmock.jpg');
+      background-image: url('https://s3-us-west-2.amazonaws.com/heartcompanion/images/abtmock.jpg');
       background-attachment: fixed;
       background-repeat: none;
       background-size: cover;
@@ -86,7 +86,7 @@
 }
 
 body.landing {
-  background-image: url('1.jpg');
+  background-image: url('https://s3-us-west-2.amazonaws.com/heartcompanion/images/1.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size:cover;
