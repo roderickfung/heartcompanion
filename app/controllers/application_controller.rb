@@ -42,4 +42,12 @@ class ApplicationController < ActionController::Base
       redirect_to patient_log_in_path
     end
   end
+
+  def sign_in_clinician(clinician)
+    cookies[:clinician_auth] = clinician.auth_token
+  end
+
+  def sign_in_patient(patient)
+    cookeis[:patient_auth] = patient.auth_token
+  end
 end

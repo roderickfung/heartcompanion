@@ -11,5 +11,9 @@ $(document).ready(function(){
     $('.reg-c-submit').click(function(){
       $('#CRegModal').modal('toggle');
     });
+
+    $('.btn-submit').click(function(){
+      $('#patParamsModal').modal('toggle');
+    });
   });
 });

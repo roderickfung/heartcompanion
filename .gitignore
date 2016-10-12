@@ -10,9 +10,11 @@
 # Ignore Images
 /public/uploads
 
+# Ignore app_keys
+/config/initializers/app_keys.rb
+
 # Ignore bundler config.
 /.bundle
-
 
 # Ignore all logfiles and tempfiles.
 /log/*

@@ -235,11 +235,12 @@ html { height: 100%;}
   -webkit-transition: all .35s ease-in-out;
 }
 .hamburger.is-closed .hamb-middle {
-  top: 50%;
-  margin-top: -2px;
+  // top: 50%;
+  margin-top: -1px;
 }
 .hamburger.is-closed .hamb-bottom {
-  bottom: 5px;
+  bottom: 3px;
+  margin-bottom: 1px;
   -webkit-transition: all .35s ease-in-out;
 }
 

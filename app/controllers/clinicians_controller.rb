@@ -1,5 +1,5 @@
 class CliniciansController < ApplicationController
-  before_action :authenticate_clinician!, except: [:new, :create]
+  before_action :authenticate_clinician!, except: [:new, :create, :verify]
   before_action :set_clinician, only: [:index, :show, :edit, :update]
 
   def new
@@ -11,6 +11,7 @@ class CliniciansController < ApplicationController
     @clinician = Clinician.new clinician_params
     @clinician.role ||= 'clinician'
     if @clinician.save
+      VerificationMailer.verify_account(@clinician).deliver_now
       redirect_to root_path, notice: "Succesfully Signed Up! Please await for an administrator to verify your account."
     else
       flash[:alert] = @clinician.errors.full_messages.to_sentence
@@ -69,6 +70,18 @@ class CliniciansController < ApplicationController
       redirect_to root_path
     else
       flash[:notice] = 'You do not have permission to do that'
+    end
+  end
+
+  def verify
+    @clinician = Clinician.find_by_auth_token params[:id]
+
+    if @clinician.update(approved: true)
+      sign_in_clinician(@clinician)
+      redirect_to root_path, notice: 'Account Verified'
+    else
+      flash[:alert] = "Account activation failed, please try again or contact support"
+      redirect_to root_path
     end
   end
 

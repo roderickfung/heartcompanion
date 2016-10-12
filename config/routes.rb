@@ -16,6 +16,13 @@ Rails.application.routes.draw do
     resources :patient_logs, path: 'logs', only: [:new, :create, :index, :show]
   end
 
+  # Verification
+  # scope module: 'users': will generate the path without /users, but with
+  # the child controllers in the users folder
+
+  get '/verify_clinician' => 'clinicians#verify', as: :verify_clinician
+  get '/verify_patient' => 'patients#verify', as: :verify_patient
+
   #patient sessions
   get '/patient_log_in' => 'sessions#new_patient', as: :patient_log_in
   post '/patient_logs_in' => 'sessions#create_patient', as: :patient_logs_in
