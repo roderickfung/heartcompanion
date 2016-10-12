@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
 
   def index
-
     if clinician_signed_in?
       @clinician = Clinician.find_by_auth_token cookies[:clinician_auth]
       redirect_to clinician_path(@clinician)

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.3.0'
+
 # Pagination
 gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
