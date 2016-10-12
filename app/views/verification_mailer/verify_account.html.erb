@@ -1,0 +1,19 @@
+<p>Dear <%= @user.full_name%>,</p>
+
+<p>
+  Thank you for registering as a <%=@user.role%> at Heart Companion. Please click the link below to verify your account.
+</p>
+
+<% if @user.role = 'clinician' %>
+  <p><%= link_to 'Click here to verify your account', verify_clinician_url(id: @user.auth_token)%></p></p>
+<%else%>
+  <p><%= link_to 'Click here to verify your account', verify_patient_url(id: @user.auth_token)%></p>
+<%end%>
+
+<p>
+  Regards,
+</p>
+
+<p>
+  Heart Companion Team.
+</p>

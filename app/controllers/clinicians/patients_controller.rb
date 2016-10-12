@@ -12,6 +12,7 @@ class Clinicians::PatientsController < ApplicationController
     @patient = Patient.new patient_params
     @patient.clinician_id = @clinician.id
     if @patient.save
+      VerificationMailer.verify_account(@clinician).deliver_now
       redirect_to clinician_path(@clinician), notice: 'New patient created!'
     else
       flash[:alert] = @patient.errors.full_messages.to_sentence
@@ -55,6 +56,19 @@ class Clinicians::PatientsController < ApplicationController
       flash[:alert] = @patient.errors.full_messages.to_sentence
       render :edit
     end
+  end
+
+  def verify
+    @patient = Patient.find_by_auth_token params[:id]
+
+    if @patient.update(approved: true)
+      sign_in_patient(@patient)
+      redirect_to root_path, notice: 'Account Verified'
+    else
+      flash[:alert] = 'Account activation failed, please try again or contact support'
+      redirect_to root_path
+    end
+
   end
 
   protected

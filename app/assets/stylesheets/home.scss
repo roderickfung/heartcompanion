@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@media (max-width: 767px) {
+
+}
+
 
 @media (min-width: 768px) {
   #abt-jumbo-wrapper {
@@ -51,6 +55,34 @@
     // z-index: -3;
   }
 
+  .jumbotron {
+    background-color: rgba(255,255,255,0.3);
+    height: 100%;
+    margin-bottom: 0 !important;
+    // vertical-align: middle;
+    // margin-bottom: 15rem;
+    // background-blend-mode: darken;
+  }
+
+  .logo-box {
+    background-color: rgba(100,100,100,0.3);
+    border-radius: 3px;
+    margin-left: 20rem;
+    margin-right: 20rem;
+    padding-bottom: 3rem;
+    // padding-top: 2rem;
+    // padding-bottom: 0.2rem;
+  }
+
+  .jumbo-title {
+    margin-top: 25rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+    color: #ffffff !important;
+  }
+
 }
 
 body.landing {
@@ -59,34 +91,6 @@ body.landing {
   background-repeat: no-repeat;
   background-size:cover;
   z-index: -10;
-}
-
-.jumbotron {
-  background-color: rgba(255,255,255,0.3);
-  height: 100%;
-  margin-bottom: 0 !important;
-  // vertical-align: middle;
-  // margin-bottom: 15rem;
-  // background-blend-mode: darken;
-}
-
-.logo-box {
-  background-color: rgba(100,100,100,0.3);
-  border-radius: 3px;
-  margin-left: 20rem;
-  margin-right: 20rem;
-  padding-bottom: 3rem;
-  // padding-top: 2rem;
-  // padding-bottom: 0.2rem;
-}
-
-.jumbo-title {
-  margin-top: 25rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
-  padding-top: 10rem;
-  padding-bottom: 3rem;
-  color: #ffffff !important;
 }
 
 .landing-btn {
