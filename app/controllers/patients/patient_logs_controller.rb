@@ -1,6 +1,4 @@
-class Patients::PatientLogsController < ApplicationController
-  before_action :authenticate_patient!
-  before_action :set_patient
+class Patients::PatientLogsController < PatientLoggedinController
   before_action :set_patient_log, only: [:show]
   before_action :set_last_seven_logs
 
@@ -49,10 +47,6 @@ class Patients::PatientLogsController < ApplicationController
 
   def patient_log_params
     params.require(:patient_log).permit(:date, :bp_hi, :bp_low, :weight_num, :heartrate, :weight_type, :exerting_breath, :night_breath, :leg_swollen, :lightheadedness)
-  end
-
-  def set_patient
-    @patient = Patient.find_by_auth_token cookies[:patient_auth]
   end
 
   def set_patient_log

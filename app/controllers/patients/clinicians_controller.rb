@@ -1,6 +1,5 @@
-class Patients::CliniciansController < ApplicationController
-  before_action :authenticate_patient!
-  before_action :set_patient
+class Patients::CliniciansController < PatientLoggedinController
+
 
   def show
     @clinician = @patient.clinician
@@ -12,12 +11,6 @@ class Patients::CliniciansController < ApplicationController
     end
 
     render layout: 'patient-dash'
-  end
-
-  protected
-
-  def set_patient
-    @patient = Patient.find_by_auth_token cookies[:patient_auth]
   end
 
 end

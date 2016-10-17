@@ -1,0 +1,42 @@
+<div id='why-content-wrapper'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-sm-4'>
+        <div class='panel panel-success'>
+          <div class='panel-body'>
+            <%= pie_chart({'Canadians with Cardiovascular Disease' => 1300000, 'Patients who die < 1yr of diagnoses' => 325000})%>
+          </div>
+          <div class='panel-footer'>
+            <h4 style='text-align: left; line-height: 25px;'>Approximately <b style='color: red'>25% </b> of the patients die within <b style='color: red'>ONE YEAR</b> of their diagnoses.</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-sm-4'>
+        <div class='panel panel-info'>
+          <div class='panel-body'>
+            <center>
+              <img src='http://www.heartandstroke.com/atf/cf/%7B99452D8B-E7F1-4BD6-A57D-B136CE6C95BF%7D/Infographic-stroke-every-10-minutes.jpg'  />
+              <img src='http://www.heartandstroke.com/atf/cf/%7B99452D8B-E7F1-4BD6-A57D-B136CE6C95BF%7D/Infographic-9-in-10-canadians.jpg' />
+            </center>
+            <%# pie_chart({'Canadians with Cardiovascular Disease' => 1300000, 'Patients who die within one year of diagnoses' => 325000})%>
+          </div>
+          <div class='panel-footer'>
+            <h4 style='text-align: left; line-height: 25px;'>This growing and silent epidemic comes with crippling costs for the healthcare system and Canadian families</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-sm-4'>
+        <div class='panel panel-danger'>
+          <div class='panel-body'>
+            <%= pie_chart({'Canadians with Cardiovascular Disease' => 1300000, 'Patients who die without follow-up' => 455000}, colors: ['#ec1b5a', '#555'])%>
+          </div>
+          <div class='panel-footer'>
+            <h4 style='text-align: left; line-height: 25px;'>Approximately <b style='color: red'>35% </b> of the patients die without follow-up of their condition.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

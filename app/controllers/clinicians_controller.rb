@@ -99,10 +99,8 @@ class CliniciansController < ApplicationController
     @clinician = Clinician.find_by_auth_token cookies[:clinician_auth]
     @atrisk = []
     @patients = @clinician.patients.each do |patient|
-      last_log = patient.patient_logs.last
-      if last_log.bp_hi.to_i > patient.bphigh || last_log.bp_low.to_i < patient.bplow || last_log.heartrate > patient.hrhigh || last_log.heartrate < patient.hrlow || last_log.weight_num > patient.lbhigh || last_log.weight_num < patient.lblow
-        @atrisk.push(patient)
-      end
+  
+      @atrisk.push(patient) if patient.in_range?
     end
     return @atrisk
   end

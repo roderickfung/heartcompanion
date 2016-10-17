@@ -7,7 +7,43 @@
 }
 
 
+
 @media (min-width: 768px) {
+
+  #why-jumbo-wrapper {
+    // background-color: #fff;
+    background-image: url('why');
+    background-attachment: fixed;
+    background-repeat: none;
+    background-size: cover;
+    min-height: 70%;
+  }
+
+  .why-jumbo {
+    min-height: 800px;
+    background-color: rgba(200,200,200,0.15) !important;
+  }
+
+  .logo-box-why {
+    vertical-align: middle;
+    padding: 5rem;
+    margin-top: 5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+  }
+
+  #why-content-wrapper{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: #fff;
+  }
+
+  #why-content-wrapper-two{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: #ec1b5a;
+  }
+
   #abt-jumbo-wrapper {
       background-image: url('https://s3-us-west-2.amazonaws.com/heartcompanion/images/abtmock.jpg');
       background-attachment: fixed;
@@ -83,7 +119,11 @@
     color: #ffffff !important;
   }
 
+
+
 }
+
+// no media
 
 body.landing {
   background-image: url('https://s3-us-west-2.amazonaws.com/heartcompanion/images/1.jpg');

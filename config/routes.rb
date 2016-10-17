@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get '/about' => 'home#about', as: :about
+  get '/why_us' => 'home#why', as: :why_us
 
   resources :clinicians
   resources :patients, only: [:show, :edit, :update]

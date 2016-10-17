@@ -23,7 +23,7 @@ class Patient < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode
-  
+
   before_create { generate_token(:auth_token) }
 
   def full_name
@@ -34,6 +34,14 @@ class Patient < ApplicationRecord
     begin
       self[column] = SecureRandom.hex(64)
     end while Patient.exists?(column => self[column])
+  end
+
+  def in_range?
+    previous_log.bp_hi.to_i > bphigh || previous_log.bp_low.to_i < bplow ||
+    previous_log.heartrate > hrhigh ||
+    previous_log.heartrate < hrlow ||
+    previous_log.weight_num > lbhigh ||
+    previous_log.weight_num < lblow
   end
 
   protected
@@ -49,5 +57,9 @@ class Patient < ApplicationRecord
     self.hrlow ||= 53
     self.bplow ||= 90
     self.bphigh ||= 110
+  end
+
+  def previous_log
+    patient_logs.last
   end
 end
