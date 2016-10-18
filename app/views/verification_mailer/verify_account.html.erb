@@ -5,7 +5,7 @@
 </p>
 
 <% if @user.role = 'clinician' %>
-  <p><%= link_to 'Click here to verify your account', verify_clinician_url(id: @user.auth_token)%></p></p>
+  <p><%= link_to 'Click here to verify your account', verify_clinician_url(id: @user.auth_token)%></p>
 <%else%>
   <p><%= link_to 'Click here to verify your account', verify_patient_url(id: @user.auth_token)%></p>
 <%end%>
