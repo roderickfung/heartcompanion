@@ -1,19 +1,13 @@
-<p>Dear <%= @user.full_name%>,</p>
+Dear <%= @user.full_name%>,
 
-<p>
-  Thank you for registering as a <%=@user.role%> at Heart Companion. Please click the link below to verify your account.
-</p>
+Thank you for registering as a <%=@user.role%> at Heart Companion. Please click the link below to verify your account.
 
-<% if @user.role = 'clinician' %>
-  <p><%= link_to verify_clinician_url(id: @user.auth_token), verify_clinician_url(id: @user.auth_token)%></p></p>
+<%if @user.role = 'clinician'%>
+  <%= verify_clinician_url(id: @user.auth_token)%>
 <%else%>
-  <p><%= link_to verify_patient_url(id: @user.auth_token), verify_patient_url(id: @user.auth_token)%></p>
+  <%= verify_patient_url(id: @user.auth_token)%>
 <%end%>
 
-<p>
-  Regards,
-</p>
+Regards
 
-<p>
-  Heart Companion Team.
-</p>
+Heart Companion Team
